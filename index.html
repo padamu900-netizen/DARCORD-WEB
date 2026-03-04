@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARCORD • Mytic Immortal Bintang</title>
+    <title>DARCORD • No Loading</title>
     <style>
         * {
             margin: 0;
@@ -26,74 +26,14 @@
             padding: 20px;
         }
         
-        /* LOADING SCREEN */
-        .loading-screen {
-            background: #0f1219;
-            border-radius: 28px;
-            border: 1px solid #2a2f3a;
-            padding: 50px 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-            text-align: center;
-        }
-        
-        .logo {
-            margin-bottom: 40px;
-        }
-        
-        .logo h1 {
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-        
-        .logo p {
-            color: #8b9bb5;
-            font-size: 1rem;
-            margin-top: 8px;
-        }
-        
-        .spinner {
-            width: 70px;
-            height: 70px;
-            margin: 30px auto;
-            border: 5px solid #2f3540;
-            border-top: 5px solid #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .loading-text {
-            color: #3b82f6;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            animation: blink 1.5s infinite;
-        }
-        
-        .loading-sub {
-            color: #8b9bb5;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* MENU SCREEN */
+        /* MENU SCREEN - LANGSUNG MUNCUL */
         .menu-screen {
             background: #0f1219;
             border-radius: 28px;
             border: 1px solid #2a2f3a;
             padding: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-            display: none;
+            display: block;
         }
         
         .top-bar {
@@ -584,7 +524,7 @@
             cursor:pointer;
         }
         
-        /* RANK PROGRESSION - UPDATED WITH STARS */
+        /* RANK PROGRESSION */
         .rank-progression {
             margin-top: 30px;
             padding: 20px;
@@ -641,18 +581,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- LOADING SCREEN -->
-        <div id="loadingScreen" class="loading-screen">
-            <div class="logo">
-                <h1>⚡ DARCORD</h1>
-                <p>Loading...</p>
-            </div>
-            <div class="spinner"></div>
-            <div class="loading-text" id="loadingText">Memuat data</div>
-            <div class="loading-sub">Tunggu sebentar ya...</div>
-        </div>
-        
-        <!-- MENU SCREEN -->
+        <!-- MENU SCREEN - LANGSUNG MUNCUL -->
         <div id="menuScreen" class="menu-screen">
             <div class="top-bar">
                 <div class="user-info">
@@ -720,8 +649,8 @@
                 </div>
                 <div class="menu-btn large" onclick="restart()">
                     <div class="icon">🔄</div>
-                    <h3>Restart</h3>
-                    <p>Kembali ke loading</p>
+                    <h3>Reset Akun</h3>
+                    <p>Buat akun baru</p>
                 </div>
             </div>
             
@@ -759,7 +688,7 @@
                 </div>
             </div>
             
-            <!-- RANK PROGRESSION - UPDATED -->
+            <!-- RANK PROGRESSION -->
             <div class="rank-progression">
                 <h3>🏆 Rank Progression</h3>
                 <div class="rank-grid">
@@ -779,7 +708,6 @@
                 </div>
                 <div class="immortal-note">
                     ⭐ Mytic Immortal: Setiap 20 win = +1 bintang! 
-                    <br>Total maksimal 250 bintang ⭐
                 </div>
             </div>
         </div>
@@ -818,7 +746,7 @@
             <div class="ai-messages" id="chatgptMessages">
                 <div class="message bot-chatgpt">
                     Halo! Aku ChatGPT versi random! 🎲<br><br>
-                    Jawabanku bisa random, kadang lucu, kadang serius, kayak di APK ChatGPT beneran.<br><br>
+                    Jawabanku bisa random, kadang lucu, kadang serius.<br><br>
                     Coba tanya apa aja!
                 </div>
             </div>
@@ -883,8 +811,8 @@
             gameActive: true
         };
         
-        // ==================== LOADING ====================
-        window.onload = function() {
+        // ==================== INITIALIZE - LANGSUNG JALAN ====================
+        (function initialize() {
             // Cek apakah user sudah ada di localStorage
             const savedUser = localStorage.getItem('darcord_user');
             
@@ -913,26 +841,9 @@
                 localStorage.setItem('darcord_user', JSON.stringify(currentUser));
             }
             
-            // Animasi loading
-            const loadingText = document.getElementById('loadingText');
-            const dots = ['.', '..', '...'];
-            let dotIndex = 0;
-            
-            const loadingInterval = setInterval(() => {
-                loadingText.innerText = `Memuat data${dots[dotIndex]}`;
-                dotIndex = (dotIndex + 1) % dots.length;
-            }, 500);
-            
-            // 3 detik loading
-            setTimeout(() => {
-                clearInterval(loadingInterval);
-                document.getElementById('loadingScreen').style.display = 'none';
-                document.getElementById('menuScreen').style.display = 'block';
-                
-                // Update menu
-                updateAllDisplays();
-            }, 3000);
-        };
+            // Update semua tampilan
+            updateAllDisplays();
+        })();
         
         // ==================== RANK SYSTEM WITH STARS ====================
         function getRankFromWins(wins) {
@@ -1303,6 +1214,62 @@
             document.querySelectorAll('#battleScreen .cell').forEach(c => c.innerText = '');
             document.getElementById('turnBattle').innerText = 'Giliran: Player 1 (X)';
             document.getElementById('battleLog').innerHTML = '<div class="log-entry">⚔️ Battle dimulai!</div>';
+        }
+        
+        // ==================== UTILITY ====================
+        function showNotif(m) {
+            const n = document.createElement('div'); n.className = 'notification'; n.innerText = m;
+            document.body.appendChild(n);
+            setTimeout(() => { n.style.opacity = '0'; setTimeout(() => n.remove(), 300); }, 2000);
+        }
+        
+        function backToMenu() {
+            document.getElementById('deepseekScreen').style.display = 'none';
+            document.getElementById('chatgptScreen').style.display = 'none';
+            document.getElementById('battleScreen').style.display = 'none';
+            document.getElementById('menuScreen').style.display = 'block';
+        }
+        
+        function restart() {
+            // Hapus data lama
+            localStorage.removeItem('darcord_user');
+            // Reload halaman
+            window.location.reload();
+        }
+        
+        function showProfile() {
+            if (!currentUser) return;
+            let o = [];
+            if (currentUser.skins.blue) o.push('Blue');
+            if (currentUser.skins.red) o.push('Red');
+            if (currentUser.skins.gold) o.push('Gold');
+            if (currentUser.skins.rainbow) o.push('Rainbow');
+            const rank = getRankFromWins(currentUser.wins);
+            const rankDisplay = rank.hasStars ? `${rank.name} ${getStarDisplay(rank.stars)}` : rank.name;
+            alert(`👤 ${currentUser.name}\n🪙 ${currentUser.coins}\n🏆 Rank: ${rankDisplay} (${currentUser.wins} wins)\n⚔️ Menang: ${currentUser.stats.wins}\n💔 Kalah: ${currentUser.stats.losses}\n🎨 Skin aktif: ${o.length ? o.join(', ') : 'Tidak ada'}`);
+        }
+        
+        function showLeaderboard() {
+            const rank = getRankFromWins(currentUser.wins);
+            const rankDisplay = rank.hasStars ? `${rank.name} ${getStarDisplay(rank.stars)}` : rank.name;
+            
+            const players = [
+                { name: 'MYTIC', wins: 185, rank: 'Mytic Immortal ⭐⭐⭐' },
+                { name: 'LEGEND', wins: 105, rank: 'Legends' },
+                { name: 'MASTER', wins: 80, rank: 'Diamond' },
+                { name: currentUser.name, wins: currentUser.wins, rank: rankDisplay },
+                { name: 'WARRIOR', wins: 12, rank: 'Warrior' }
+            ].sort((a,b) => b.wins - a.wins);
+            
+            let m = '🏆 LEADERBOARD:\n';
+            players.forEach((p,i) => {
+                m += `${i+1}. ${p.name} - ${p.wins} wins (${p.rank})\n`;
+            });
+            alert(m);
+        }
+    </script>
+</body>
+</html>lementById('battleLog').innerHTML = '<div class="log-entry">⚔️ Battle dimulai!</div>';
         }
         
         // ==================== UTILITY ====================
