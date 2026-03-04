@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DARCORD • Full Version</title>
+    <title>DARCORD • FIX BUTTON</title>
     <style>
         * {
             margin: 0;
@@ -62,20 +62,6 @@
             color: white;
             font-weight: bold;
             font-size: 1.3rem;
-            transition: 0.3s;
-        }
-        
-        .user-avatar.blue-glow { box-shadow: 0 0 15px #3b82f6; border: 2px solid #3b82f6; }
-        .user-avatar.red-flame { box-shadow: 0 0 15px #ff4d4d; border: 2px solid #ff4d4d; }
-        .user-avatar.gold-legend { box-shadow: 0 0 20px gold; border: 2px solid gold; }
-        .user-avatar.rainbow { animation: rainbowGlow 2s infinite; border: 2px solid white; }
-        
-        @keyframes rainbowGlow {
-            0% { box-shadow: 0 0 15px red; }
-            25% { box-shadow: 0 0 15px yellow; }
-            50% { box-shadow: 0 0 15px green; }
-            75% { box-shadow: 0 0 15px blue; }
-            100% { box-shadow: 0 0 15px purple; }
         }
         
         .user-details h3 {
@@ -95,15 +81,6 @@
             font-weight: bold;
             color: black;
             font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .star-icon {
-            color: gold;
-            font-size: 1rem;
-            filter: drop-shadow(0 0 3px gold);
         }
         
         .coin-display {
@@ -119,35 +96,7 @@
             font-size: 0.8rem;
         }
         
-        /* RANK BADGE */
-        .rank-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 0.7rem;
-        }
-        
-        .rank-bronze { background: #cd7f32; color: black; }
-        .rank-warrior { background: #a0a0a0; color: black; }
-        .rank-silver { background: #c0c0c0; color: black; }
-        .rank-elite { background: #4a5a6a; color: white; }
-        .rank-platinum { background: #00aaff; color: white; }
-        .rank-master { background: #aa00ff; color: white; }
-        .rank-diamond { background: #00ffff; color: black; }
-        .rank-epic { background: #ff00aa; color: white; }
-        .rank-legends { background: #ffaa00; color: black; }
-        .rank-mytic { background: #ff0000; color: white; }
-        .rank-mytic-honor { background: linear-gradient(45deg, #ff0000, #ffaa00); color: white; }
-        .rank-mytic-glory { background: linear-gradient(45deg, #ffaa00, #ffffff); color: black; }
-        .rank-mytic-immortal { background: linear-gradient(45deg, #ffd700, #ffaa00, #ffffff); color: black; animation: immortalGlow 2s infinite; }
-        
-        @keyframes immortalGlow {
-            0%, 100% { box-shadow: 0 0 10px gold; }
-            50% { box-shadow: 0 0 20px gold; }
-        }
-        
-        /* BUTTONS */
+        /* BUTTON STYLING */
         .menu-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -162,7 +111,6 @@
             padding: 15px 10px;
             text-align: center;
             cursor: pointer;
-            transition: 0.2s;
             min-height: 90px;
             display: flex;
             flex-direction: column;
@@ -199,11 +147,6 @@
             gap: 10px;
         }
         
-        .menu-btn.large .icon {
-            font-size: 1.5rem;
-            margin-bottom: 0;
-        }
-        
         /* DEEPSEEK BUTTON */
         .deepseek-btn {
             grid-column: span 2;
@@ -218,7 +161,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .deepseek-btn:active {
@@ -236,15 +178,6 @@
             margin-bottom: 3px;
         }
         
-        .badge-deepseek {
-            background: #00c8ff;
-            color: black;
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            display: inline-block;
-        }
-        
         /* CHATGPT BUTTON */
         .chatgpt-btn {
             grid-column: span 2;
@@ -255,7 +188,6 @@
             text-align: center;
             cursor: pointer;
             margin-bottom: 5px;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .chatgpt-btn:active {
@@ -277,11 +209,6 @@
             text-align: center;
             cursor: pointer;
             margin-bottom: 5px;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .math-btn:active {
-            transform: scale(0.98);
         }
         
         /* AI CHAT SCREENS */
@@ -317,7 +244,6 @@
             padding: 8px 15px;
             border-radius: 30px;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .ai-messages {
@@ -372,11 +298,6 @@
             color: white;
         }
         
-        .ai-input:focus {
-            border-color: #00c8ff;
-            outline: none;
-        }
-        
         .ai-send {
             border: none;
             border-radius: 25px;
@@ -384,7 +305,6 @@
             color: black;
             font-weight: bold;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .deepseek-send { background: #00c8ff; }
@@ -421,13 +341,7 @@
             font-weight: bold;
             font-size: 1.5rem;
             margin: 0 auto 5px;
-            transition: 0.3s;
         }
-        
-        .player-avatar.blue-glow { box-shadow: 0 0 15px #3b82f6; border: 2px solid #3b82f6; }
-        .player-avatar.red-flame { box-shadow: 0 0 15px #ff4d4d; border: 2px solid #ff4d4d; }
-        .player-avatar.gold-legend { box-shadow: 0 0 20px gold; border: 2px solid gold; }
-        .player-avatar.rainbow { animation: rainbowGlow 2s infinite; border: 2px solid white; }
         
         .vs {
             font-size: 1.5rem;
@@ -445,7 +359,6 @@
             font-size: 2rem;
             color: white;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .cell:active {
@@ -459,7 +372,6 @@
             padding: 6px 12px;
             border-radius: 30px;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .reset-btn {
@@ -471,7 +383,6 @@
             color: white;
             cursor: pointer;
             margin-top: 10px;
-            -webkit-tap-highlight-color: transparent;
         }
         
         /* SHOP SECTION */
@@ -556,32 +467,31 @@
             font-size: 0.8rem;
         }
         
+        .rank-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.7rem;
+        }
+        
+        .rank-bronze { background: #cd7f32; color: black; }
+        .rank-warrior { background: #a0a0a0; color: black; }
+        .rank-silver { background: #c0c0c0; color: black; }
+        .rank-elite { background: #4a5a6a; color: white; }
+        .rank-platinum { background: #00aaff; color: white; }
+        .rank-master { background: #aa00ff; color: white; }
+        .rank-diamond { background: #00ffff; color: black; }
+        .rank-epic { background: #ff00aa; color: white; }
+        .rank-legends { background: #ffaa00; color: black; }
+        .rank-mytic { background: #ff0000; color: white; }
+        .rank-mytic-honor { background: linear-gradient(45deg, #ff0000, #ffaa00); color: white; }
+        .rank-mytic-glory { background: linear-gradient(45deg, #ffaa00, #ffffff); color: black; }
+        .rank-mytic-immortal { background: linear-gradient(45deg, #ffd700, #ffaa00, #ffffff); color: black; }
+        
         .win-point {
             color: #8b9bb5;
             margin-left: auto;
-        }
-        
-        .immortal-note {
-            color: gold;
-            font-size: 0.75rem;
-            margin-top: 10px;
-            padding: 5px;
-            background: #00000040;
-            border-radius: 5px;
-            text-align: center;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1e232b;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 2px solid #3b82f6;
-            z-index: 1000;
         }
     </style>
 </head>
@@ -598,10 +508,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="rank-display" id="menuRank">
-                        <span>Warrior</span>
-                        <span class="star-icon" id="starDisplay"></span>
-                    </div>
+                    <div class="rank-display" id="menuRank">Warrior</div>
                     <div class="coin-display">
                         <span>🪙</span>
                         <span id="coinCount">100</span>
@@ -614,7 +521,6 @@
                 <div class="deepseek-btn" onclick="openDeepSeek()">
                     <div class="icon">🤖</div>
                     <h2>DEEPSEEK AI</h2>
-                    <div class="badge-deepseek">CERDAS</div>
                 </div>
                 
                 <!-- CHATGPT BUTTON -->
@@ -629,24 +535,35 @@
                     <h3>MATEMATIKA</h3>
                 </div>
                 
+                <!-- BATTLE BUTTON - UDAH FIX -->
                 <div class="menu-btn" onclick="startBattle()">
                     <div class="icon">⚔️</div>
                     <h3>Battle</h3>
                     <p>Lawas AI</p>
                 </div>
+                
+                <!-- SHOP BUTTON -->
                 <div class="menu-btn" onclick="toggleShop()">
                     <div class="icon">🛒</div>
                     <h3>Shop</h3>
                     <p>Beli skin</p>
                 </div>
+                
+                <!-- PROFILE BUTTON - UDAH FIX -->
                 <div class="menu-btn" onclick="showProfile()">
                     <div class="icon">👤</div>
                     <h3>Profile</h3>
+                    <p>Lihat data</p>
                 </div>
+                
+                <!-- LEADERBOARD BUTTON - UDAH FIX -->
                 <div class="menu-btn" onclick="showLeaderboard()">
                     <div class="icon">🏆</div>
                     <h3>Rank</h3>
+                    <p>Peringkat</p>
                 </div>
+                
+                <!-- RESET BUTTON -->
                 <div class="menu-btn large" onclick="resetAkun()">
                     <div class="icon">🔄</div>
                     <h3>Reset Akun</h3>
@@ -655,39 +572,32 @@
             
             <!-- SHOP SECTION -->
             <div id="shopSection" class="shop-section">
-                <div class="shop-title">
-                    <span>🛒</span> SKIN SHOP
-                    <span style="float:right;">🪙 <span id="shopCoin">100</span></span>
-                </div>
+                <div class="shop-title">🛒 SKIN SHOP</div>
                 <div class="skin-grid">
                     <div class="skin-item" onclick="buySkin('blue')">
                         <div class="preview" style="color: #3b82f6;">🔵</div>
                         <h4>Blue Glow</h4>
                         <div class="skin-price">🪙 50</div>
-                        <div class="skin-owned" id="skinBlue">Belum</div>
                     </div>
                     <div class="skin-item" onclick="buySkin('red')">
                         <div class="preview" style="color: #ff4d4d;">🔴</div>
                         <h4>Red Flame</h4>
                         <div class="skin-price">🪙 75</div>
-                        <div class="skin-owned" id="skinRed">Belum</div>
                     </div>
                     <div class="skin-item" onclick="buySkin('gold')">
                         <div class="preview" style="color: #ffaa00;">⭐</div>
                         <h4>Gold Legend</h4>
                         <div class="skin-price">🪙 150</div>
-                        <div class="skin-owned" id="skinGold">Belum</div>
                     </div>
                     <div class="skin-item" onclick="buySkin('rainbow')">
-                        <div class="preview" style="background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🌈</div>
+                        <div class="preview" style="color: #ff00ff;">🌈</div>
                         <h4>Rainbow</h4>
                         <div class="skin-price">🪙 200</div>
-                        <div class="skin-owned" id="skinRainbow">Belum</div>
                     </div>
                 </div>
             </div>
             
-            <!-- RANK PROGRESSION - LENGKAP -->
+            <!-- RANK PROGRESSION -->
             <div class="rank-progression">
                 <h3>🏆 Rank Progression</h3>
                 <div class="rank-grid">
@@ -703,10 +613,7 @@
                     <div class="rank-item"><span class="rank-badge rank-mytic">Mytic</span> <span class="win-point">110 win</span></div>
                     <div class="rank-item"><span class="rank-badge rank-mytic-honor">Mytic Honor</span> <span class="win-point">115 win</span></div>
                     <div class="rank-item"><span class="rank-badge rank-mytic-glory">Mytic Glory</span> <span class="win-point">120 win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-mytic-immortal">Mytic Immortal</span> <span class="win-point">125-5060 win</span></div>
-                </div>
-                <div class="immortal-note">
-                    ⭐ Mytic Immortal: Setiap 20 win = +1 bintang! 
+                    <div class="rank-item"><span class="rank-badge rank-mytic-immortal">Mytic Immortal</span> <span class="win-point">125+ win</span></div>
                 </div>
             </div>
         </div>
@@ -718,7 +625,7 @@
                 <button onclick="backToMenu()">←</button>
             </div>
             <div class="ai-messages" id="deepseekMessages">
-                <div class="message bot-deepseek">Halo! Aku DeepSeek AI.<br>Bisa jawab matematika & pengetahuan umum.</div>
+                <div class="message bot-deepseek">Halo! Ada yang bisa dibantu?</div>
             </div>
             <div class="ai-input-area">
                 <input type="text" id="deepseekInput" class="ai-input" placeholder="Tanya...">
@@ -733,7 +640,7 @@
                 <button onclick="backToMenu()">←</button>
             </div>
             <div class="ai-messages" id="chatgptMessages">
-                <div class="message bot-chatgpt">Halo! Aku ChatGPT random!<br>Jawabanku bisa random & lucu.</div>
+                <div class="message bot-chatgpt">Halo! Aku ChatGPT random!</div>
             </div>
             <div class="ai-input-area">
                 <input type="text" id="chatgptInput" class="ai-input" placeholder="Tanya...">
@@ -751,13 +658,11 @@
                 <div class="player-side">
                     <div class="player-avatar" id="player1Avatar">P1</div>
                     <div id="player1Name">Player</div>
-                    <div id="player1Rank" class="rank-badge rank-bronze">Bronze</div>
                 </div>
                 <div class="vs">VS</div>
                 <div class="player-side">
                     <div class="player-avatar">AI</div>
                     <div>AI Bot</div>
-                    <div class="rank-badge rank-bronze">Bronze</div>
                 </div>
             </div>
             <div style="color:#ffaa00; text-align:center; margin:10px;" id="turnBattle">Giliran: X</div>
@@ -778,79 +683,54 @@
 
     <script>
         // ==================== DATA USER ====================
-        let currentUser = null;
-        let battleGame = { board: ['','','','','','','','',''], currentPlayer: 'X', gameActive: true };
+        let currentUser = {
+            name: 'WARRIOR',
+            coins: 100,
+            wins: 5,
+            skins: { blue: false, red: false, gold: false, rainbow: false }
+        };
         
-        // ==================== RANK SYSTEM ====================
-        function getRankFromWins(wins) {
-            if (wins >= 125) {
-                const starWins = wins - 125;
-                const stars = Math.floor(starWins / 20) + 1;
-                return { name: 'Mytic Immortal', class: 'rank-mytic-immortal', stars: stars, hasStars: true };
-            }
-            if (wins >= 120) return { name: 'Mytic Glory', class: 'rank-mytic-glory', hasStars: false };
-            if (wins >= 115) return { name: 'Mytic Honor', class: 'rank-mytic-honor', hasStars: false };
-            if (wins >= 110) return { name: 'Mytic', class: 'rank-mytic', hasStars: false };
-            if (wins >= 100) return { name: 'Legends', class: 'rank-legends', hasStars: false };
-            if (wins >= 90) return { name: 'Epic', class: 'rank-epic', hasStars: false };
-            if (wins >= 70) return { name: 'Diamond', class: 'rank-diamond', hasStars: false };
-            if (wins >= 55) return { name: 'Master', class: 'rank-master', hasStars: false };
-            if (wins >= 40) return { name: 'Platinum', class: 'rank-platinum', hasStars: false };
-            if (wins >= 25) return { name: 'Elite', class: 'rank-elite', hasStars: false };
-            if (wins >= 15) return { name: 'Silver', class: 'rank-silver', hasStars: false };
-            if (wins >= 5) return { name: 'Warrior', class: 'rank-warrior', hasStars: false };
-            return { name: 'Bronze', class: 'rank-bronze', hasStars: false };
-        }
+        let battleGame = {
+            board: ['', '', '', '', '', '', '', '', ''],
+            currentPlayer: 'X',
+            gameActive: true
+        };
         
-        function getStarDisplay(stars) {
-            if (stars > 10) return `⭐ ${stars}`;
-            return '⭐'.repeat(stars);
-        }
-        
-        // ==================== INITIALIZATION ====================
+        // ==================== INISIALISASI ====================
         (function() {
-            let saved = localStorage.getItem('darcord_user');
-            if(saved) {
+            let saved = localStorage.getItem('darcord_user_fix');
+            if (saved) {
                 currentUser = JSON.parse(saved);
             } else {
-                let names = ['WARRIOR','FIGHTER','KNIGHT','SAMURAI','GLADIATOR','CHAMPION'];
-                currentUser = {
-                    name: names[Math.floor(Math.random()*names.length)],
-                    wins: 5 + Math.floor(Math.random()*10),
-                    coins: 100 + Math.floor(Math.random()*100),
-                    skins: { blue: false, red: false, gold: false, rainbow: false },
-                    stats: { wins: 5 + Math.floor(Math.random()*10), losses: Math.floor(Math.random()*5) }
-                };
-                localStorage.setItem('darcord_user', JSON.stringify(currentUser));
+                let names = ['WARRIOR', 'FIGHTER', 'KNIGHT', 'SAMURAI', 'GLADIATOR'];
+                currentUser.name = names[Math.floor(Math.random() * names.length)];
+                currentUser.wins = 5 + Math.floor(Math.random() * 10);
+                currentUser.coins = 100 + Math.floor(Math.random() * 100);
+                localStorage.setItem('darcord_user_fix', JSON.stringify(currentUser));
             }
             
-            // Update display
             document.getElementById('menuUsername').innerText = currentUser.name;
             document.getElementById('menuAvatar').innerText = currentUser.name[0];
             document.getElementById('coinCount').innerText = currentUser.coins;
-            document.getElementById('shopCoin').innerText = currentUser.coins;
-            
-            let rank = getRankFromWins(currentUser.wins);
-            let rankElement = document.getElementById('menuRank');
-            let starDisplay = document.getElementById('starDisplay');
-            
-            if (rank.hasStars) {
-                rankElement.innerHTML = `<span>${rank.name}</span> <span class="star-icon">${getStarDisplay(rank.stars)}</span>`;
-            } else {
-                rankElement.innerHTML = `<span>${rank.name}</span>`;
-            }
-            
-            // Apply skin
-            let avatar = document.getElementById('menuAvatar');
-            if (currentUser.skins.rainbow) applySkinEffect(avatar, 'rainbow');
-            else if (currentUser.skins.gold) applySkinEffect(avatar, 'gold');
-            else if (currentUser.skins.red) applySkinEffect(avatar, 'red');
-            else if (currentUser.skins.blue) applySkinEffect(avatar, 'blue');
-            
-            updateShopDisplay();
         })();
         
-        // ==================== NAVIGASI ====================
+        // ==================== FUNGSI UTAMA ====================
+        function showScreen(id) {
+            document.getElementById('menuScreen').style.display = 'none';
+            document.getElementById('deepseekScreen').style.display = 'none';
+            document.getElementById('chatgptScreen').style.display = 'none';
+            document.getElementById('battleScreen').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+        
+        function backToMenu() {
+            document.getElementById('menuScreen').style.display = 'block';
+            document.getElementById('deepseekScreen').style.display = 'none';
+            document.getElementById('chatgptScreen').style.display = 'none';
+            document.getElementById('battleScreen').style.display = 'none';
+        }
+        
+        // ==================== BUTTON FUNCTIONS ====================
         function openDeepSeek() {
             showScreen('deepseekScreen');
         }
@@ -867,122 +747,78 @@
             }, 200);
         }
         
-        function showScreen(id) {
-            document.getElementById('menuScreen').style.display = 'none';
-            document.getElementById('deepseekScreen').style.display = 'none';
-            document.getElementById('chatgptScreen').style.display = 'none';
-            document.getElementById('battleScreen').style.display = 'none';
-            document.getElementById(id).style.display = 'block';
-        }
-        
-        function backToMenu() {
-            document.getElementById('menuScreen').style.display = 'block';
-            document.getElementById('deepseekScreen').style.display = 'none';
-            document.getElementById('chatgptScreen').style.display = 'none';
-            document.getElementById('battleScreen').style.display = 'none';
-        }
-        
         function toggleShop() {
             let shop = document.getElementById('shopSection');
-            shop.style.display = shop.style.display === 'none' ? 'block' : 'none';
+            if (shop.style.display === 'none' || shop.style.display === '') {
+                shop.style.display = 'block';
+            } else {
+                shop.style.display = 'none';
+            }
         }
         
         function showProfile() {
-            let rank = getRankFromWins(currentUser.wins);
-            let rankName = rank.hasStars ? `${rank.name} ${getStarDisplay(rank.stars)}` : rank.name;
             let owned = [];
             if (currentUser.skins.blue) owned.push('Blue');
             if (currentUser.skins.red) owned.push('Red');
             if (currentUser.skins.gold) owned.push('Gold');
             if (currentUser.skins.rainbow) owned.push('Rainbow');
             
-            alert(`👤 ${currentUser.name}\n🪙 Koin: ${currentUser.coins}\n🏆 Rank: ${rankName} (${currentUser.wins} wins)\n⚔️ Menang: ${currentUser.stats.wins}\n💔 Kalah: ${currentUser.stats.losses}\n🎨 Skin: ${owned.length ? owned.join(', ') : 'Belum punya'}`);
+            alert(`👤 ${currentUser.name}\n🪙 Koin: ${currentUser.coins}\n🏆 Wins: ${currentUser.wins}\n🎨 Skin: ${owned.length ? owned.join(', ') : 'Belum punya'}`);
         }
         
         function showLeaderboard() {
-            alert('🏆 LEADERBOARD:\n1. MYTIC (185 wins) ⭐⭐⭐\n2. LEGEND (105 wins)\n3. MASTER (80 wins)\n4. ' + currentUser.name + ' (' + currentUser.wins + ' wins)');
+            alert('🏆 LEADERBOARD:\n1. MYTIC (185 wins)\n2. LEGEND (105 wins)\n3. MASTER (80 wins)\n4. ' + currentUser.name + ' (' + currentUser.wins + ' wins)');
         }
         
         function resetAkun() {
-            if(confirm('Reset akun? Semua data akan hilang!')) {
-                localStorage.removeItem('darcord_user');
+            if (confirm('Reset akun? Semua data akan hilang!')) {
+                localStorage.removeItem('darcord_user_fix');
                 location.reload();
             }
         }
         
-        // ==================== SKIN SYSTEM ====================
-        function updateShopDisplay() {
-            document.getElementById('skinBlue').innerText = currentUser.skins.blue ? 'OWNED' : 'Belum';
-            document.getElementById('skinRed').innerText = currentUser.skins.red ? 'OWNED' : 'Belum';
-            document.getElementById('skinGold').innerText = currentUser.skins.gold ? 'OWNED' : 'Belum';
-            document.getElementById('skinRainbow').innerText = currentUser.skins.rainbow ? 'OWNED' : 'Belum';
-        }
-        
-        function applySkinEffect(element, skin) {
-            element.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow');
-            if (skin === 'blue') element.classList.add('blue-glow');
-            if (skin === 'red') element.classList.add('red-flame');
-            if (skin === 'gold') element.classList.add('gold-legend');
-            if (skin === 'rainbow') element.classList.add('rainbow');
-        }
-        
+        // ==================== SKIN SHOP ====================
         function buySkin(skin) {
             let prices = { blue: 50, red: 75, gold: 150, rainbow: 200 };
-            if (currentUser.skins[skin]) { alert('Udah punya!'); return; }
-            if (currentUser.coins < prices[skin]) { alert('Koin kurang!'); return; }
+            
+            if (currentUser.skins[skin]) {
+                alert('Kamu sudah punya skin ini!');
+                return;
+            }
+            
+            if (currentUser.coins < prices[skin]) {
+                alert('Koin tidak cukup!');
+                return;
+            }
             
             currentUser.coins -= prices[skin];
             currentUser.skins[skin] = true;
-            localStorage.setItem('darcord_user', JSON.stringify(currentUser));
-            
+            localStorage.setItem('darcord_user_fix', JSON.stringify(currentUser));
             document.getElementById('coinCount').innerText = currentUser.coins;
-            document.getElementById('shopCoin').innerText = currentUser.coins;
-            updateShopDisplay();
-            
-            let avatar = document.getElementById('menuAvatar');
-            applySkinEffect(avatar, skin);
             alert(`✅ ${skin} skin dibeli!`);
+            toggleShop();
         }
         
         // ==================== DEEPSEEK AI ====================
         function getDeepSeekResponse(msg) {
             msg = msg.toLowerCase();
             
-            // Matematika
             if (msg.includes('+') || msg.includes('tambah')) {
                 let nums = msg.match(/\d+/g);
-                if (nums && nums.length >= 2) return `Hasil: ${parseInt(nums[0]) + parseInt(nums[1])}`;
+                if (nums && nums.length >= 2) {
+                    return `Hasil: ${parseInt(nums[0]) + parseInt(nums[1])}`;
+                }
             }
-            if (msg.includes('-') || msg.includes('kurang')) {
-                let nums = msg.match(/\d+/g);
-                if (nums && nums.length >= 2) return `Hasil: ${parseInt(nums[0]) - parseInt(nums[1])}`;
+            if (msg.includes('soal')) {
+                let a = Math.floor(Math.random() * 10) + 1;
+                let b = Math.floor(Math.random() * 10) + 1;
+                return `Soal: ${a} + ${b} = ?`;
             }
-            if ((msg.includes('x') || msg.includes('kali') || msg.includes('×'))) {
-                let nums = msg.match(/\d+/g);
-                if (nums && nums.length >= 2) return `Hasil: ${parseInt(nums[0]) * parseInt(nums[1])}`;
-            }
-            if (msg.includes('/') || msg.includes('bagi')) {
-                let nums = msg.match(/\d+/g);
-                if (nums && nums.length >= 2) return `Hasil: ${(parseInt(nums[0]) / parseInt(nums[1])).toFixed(2)}`;
-            }
-            if (msg.includes('soal') || msg.includes('latihan')) {
-                let a = Math.floor(Math.random()*10)+1;
-                let b = Math.floor(Math.random()*10)+1;
-                let ops = ['+', '-', '×'];
-                let op = ops[Math.floor(Math.random()*ops.length)];
-                return `Soal: ${a} ${op} ${b} = ?`;
-            }
-            
-            // Pengetahuan umum
-            if (msg.includes('presiden')) return "Presiden RI sekarang Prabowo Subianto (2024-2029).";
-            if (msg.includes('ibukota') || msg.includes('ibu kota')) return "Ibukota Indonesia adalah Nusantara (IKN).";
-            if (msg.includes('siapa') && msg.includes('kamu')) return "Aku DeepSeek AI, asisten cerdas!";
             
             let responses = [
                 "Menarik! Ceritain lebih lanjut.",
-                "Oke, gimana menurut lo?",
-                "Hmm, gitu ya...",
-                "Ada pertanyaan lain?",
+                "Oke, gitu ya...",
+                "Hmm, ada pertanyaan lain?",
                 "Sip!"
             ];
             return responses[Math.floor(Math.random() * responses.length)];
@@ -1014,21 +850,10 @@
             div.innerHTML += `<div class="message user">${msg}</div>`;
             input.value = '';
             
-            let replies = [
-                "Wah gitu ya?",
-                "Menarik banget!",
-                "Coba jelasin lagi dong.",
-                "Hmm... gua mikir dulu.",
-                "Ok deh, lanjut.",
-                "Lo tau gak? Gua juga gak tau.",
-                "Serius? Keren!",
-                "😂",
-                "🤔",
-                "👍"
-            ];
+            let replies = ["Wah gitu ya?", "Menarik!", "Hmm...", "Ok deh", "😂", "👍"];
             
             setTimeout(() => {
-                div.innerHTML += `<div class="message bot-chatgpt">${replies[Math.floor(Math.random()*replies.length)]}</div>`;
+                div.innerHTML += `<div class="message bot-chatgpt">${replies[Math.floor(Math.random() * replies.length)]}</div>`;
                 div.scrollTop = div.scrollHeight;
             }, 500);
         }
@@ -1037,18 +862,6 @@
         function startBattle() {
             resetBattle();
             document.getElementById('player1Name').innerText = currentUser.name;
-            
-            let rank = getRankFromWins(currentUser.wins);
-            let player1Rank = document.getElementById('player1Rank');
-            player1Rank.innerText = rank.hasStars ? `${rank.name} ${getStarDisplay(rank.stars)}` : rank.name;
-            player1Rank.className = `rank-badge ${rank.class}`;
-            
-            let avatar = document.getElementById('player1Avatar');
-            if (currentUser.skins.rainbow) applySkinEffect(avatar, 'rainbow');
-            else if (currentUser.skins.gold) applySkinEffect(avatar, 'gold');
-            else if (currentUser.skins.red) applySkinEffect(avatar, 'red');
-            else if (currentUser.skins.blue) applySkinEffect(avatar, 'blue');
-            
             showScreen('battleScreen');
         }
         
@@ -1060,19 +873,24 @@
             battleGame.board[idx] = 'X';
             cells[idx].innerText = 'X';
             
-            if (checkWin('X')) { endBattle('win'); return; }
-            if (!battleGame.board.includes('')) { endBattle('draw'); return; }
+            if (checkWin('X')) {
+                endBattle('win');
+                return;
+            }
+            if (!battleGame.board.includes('')) {
+                endBattle('draw');
+                return;
+            }
             
             battleGame.currentPlayer = 'O';
             document.getElementById('turnBattle').innerText = 'Giliran: AI';
-            
-            setTimeout(aiMove, 400);
+            setTimeout(aiMove, 500);
         }
         
         function aiMove() {
             let cells = document.querySelectorAll('#battleScreen .cell');
             let empty = [];
-            for (let i=0; i<9; i++) {
+            for (let i = 0; i < 9; i++) {
                 if (battleGame.board[i] === '') empty.push(i);
             }
             if (empty.length === 0) return;
@@ -1081,68 +899,62 @@
             battleGame.board[idx] = 'O';
             cells[idx].innerText = 'O';
             
-            if (checkWin('O')) { endBattle('lose'); return; }
-            if (!battleGame.board.includes('')) { endBattle('draw'); return; }
+            if (checkWin('O')) {
+                endBattle('lose');
+                return;
+            }
+            if (!battleGame.board.includes('')) {
+                endBattle('draw');
+                return;
+            }
             
             battleGame.currentPlayer = 'X';
             document.getElementById('turnBattle').innerText = 'Giliran: X';
         }
         
         function checkWin(p) {
-            let win = [
-                [0,1,2],[3,4,5],[6,7,8],
-                [0,3,6],[1,4,7],[2,5,8],
-                [0,4,8],[2,4,6]
+            let winPatterns = [
+                [0,1,2], [3,4,5], [6,7,8],
+                [0,3,6], [1,4,7], [2,5,8],
+                [0,4,8], [2,4,6]
             ];
-            for (let w of win) {
-                if (battleGame.board[w[0]] === p && 
-                    battleGame.board[w[1]] === p && 
-                    battleGame.board[w[2]] === p) return true;
+            
+            for (let pattern of winPatterns) {
+                if (battleGame.board[pattern[0]] === p &&
+                    battleGame.board[pattern[1]] === p &&
+                    battleGame.board[pattern[2]] === p) {
+                    return true;
+                }
             }
             return false;
         }
         
-        function endBattle(r) {
+        function endBattle(result) {
             battleGame.gameActive = false;
             
-            if (r === 'win') { 
-                currentUser.coins += 2; 
+            if (result === 'win') {
+                currentUser.coins += 2;
                 currentUser.wins++;
-                currentUser.stats.wins++;
                 alert('🎉 MENANG! +2 koin, +1 win');
-            } else if (r === 'lose') { 
-                currentUser.coins += 1; 
-                currentUser.stats.losses++;
+            } else if (result === 'lose') {
+                currentUser.coins += 1;
                 alert('🤖 KALAH! +1 koin');
-            } else { 
-                currentUser.coins += 1; 
+            } else {
+                currentUser.coins += 1;
                 alert('🤝 SERI! +1 koin');
             }
             
-            localStorage.setItem('darcord_user', JSON.stringify(currentUser));
-            
+            localStorage.setItem('darcord_user_fix', JSON.stringify(currentUser));
             document.getElementById('coinCount').innerText = currentUser.coins;
-            document.getElementById('shopCoin').innerText = currentUser.coins;
-            
-            let rank = getRankFromWins(currentUser.wins);
-            let rankElement = document.getElementById('menuRank');
-            let starDisplay = document.getElementById('starDisplay');
-            
-            if (rank.hasStars) {
-                rankElement.innerHTML = `<span>${rank.name}</span> <span class="star-icon">${getStarDisplay(rank.stars)}</span>`;
-            } else {
-                rankElement.innerHTML = `<span>${rank.name}</span>`;
-            }
-            
-            document.getElementById('turnBattle').innerText = r === 'win' ? '🏆 MENANG!' : r === 'lose' ? '🤖 KALAH!' : '🤝 SERI!';
+            document.getElementById('turnBattle').innerText = result === 'win' ? '🏆 MENANG!' : result === 'lose' ? '🤖 KALAH!' : '🤝 SERI!';
         }
         
         function resetBattle() {
-            battleGame.board = ['','','','','','','','',''];
+            battleGame.board = ['', '', '', '', '', '', '', '', ''];
             battleGame.currentPlayer = 'X';
             battleGame.gameActive = true;
             let cells = document.querySelectorAll('#battleScreen .cell');
-            for (let i=0; i<9; i++) cells[i].innerText = '';
+            for (let i = 0; i < 9; i++) cells[i].innerText = '';
             document.getElementById('turnBattle').innerText = 'Giliran: X';
         }
     </script>
