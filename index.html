@@ -3,113 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DARCORD • Multi‑Akun + Cheat</title>
+    <title>DARCORD • FINAL ALL FITUR</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background: #0a0c10; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 10px; }
-        .container { max-width: 500px; width: 100%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: #0a0c10;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+        }
         /* LOGIN SCREEN */
         .login-screen {
-            background: #0f1219; border-radius: 28px; border: 1px solid #2a2f3a; padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8); display: block;
+            background: #0f1219;
+            border-radius: 28px;
+            border: 1px solid #2a2f3a;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            display: block;
         }
-        .logo { text-align: center; margin-bottom: 30px; }
-        .logo h1 { color: white; font-size: 2.2rem; font-weight: 600; letter-spacing: 1px; }
-        .logo p { color: #8b9bb5; font-size: 0.9rem; margin-top: 8px; }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 {
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .logo p {
+            color: #8b9bb5;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
         .email-input {
-            width: 100%; padding: 16px 18px; background: #1a1f2a; border: 1px solid #2f3540;
-            border-radius: 16px; color: white; font-size: 1rem; outline: none; margin-bottom: 20px;
+            width: 100%;
+            padding: 16px 18px;
+            background: #1a1f2a;
+            border: 1px solid #2f3540;
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            margin-bottom: 20px;
         }
         .signin-btn {
-            width: 100%; padding: 16px; background: #3b82f6; border: none; border-radius: 16px;
-            color: white; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: 0.2s;
+            width: 100%;
+            padding: 16px;
+            background: #3b82f6;
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        .signin-btn:hover { background: #2563eb; }
+        .signin-btn:hover {
+            background: #2563eb;
+        }
         /* MENU SCREEN */
         .menu-screen {
-            background: #0f1219; border-radius: 28px; border: 1px solid #2a2f3a; padding: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8); display: none;
+            background: #0f1219;
+            border-radius: 28px;
+            border: 1px solid #2a2f3a;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            display: none;
         }
         .top-bar {
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;
-            padding-bottom: 10px; border-bottom: 1px solid #2f3540;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #2f3540;
         }
-        .user-info { display: flex; align-items: center; gap: 8px; }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
         .user-avatar {
-            width: 45px; height: 45px; background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: bold; font-size: 1.3rem; transition: 0.3s;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: 0.3s;
         }
         .user-avatar.blue-glow { box-shadow: 0 0 15px #3b82f6; border: 2px solid #3b82f6; }
         .user-avatar.red-flame { box-shadow: 0 0 15px #ff4d4d; border: 2px solid #ff4d4d; }
         .user-avatar.gold-legend { box-shadow: 0 0 20px gold; border: 2px solid gold; }
         .user-avatar.rainbow { animation: rainbowGlow 2s infinite; border: 2px solid white; }
         @keyframes rainbowGlow {
-            0% { box-shadow: 0 0 15px red; } 25% { box-shadow: 0 0 15px yellow; }
-            50% { box-shadow: 0 0 15px green; } 75% { box-shadow: 0 0 15px blue; }
+            0% { box-shadow: 0 0 15px red; }
+            25% { box-shadow: 0 0 15px yellow; }
+            50% { box-shadow: 0 0 15px green; }
+            75% { box-shadow: 0 0 15px blue; }
             100% { box-shadow: 0 0 15px purple; }
         }
-        .user-details { display: flex; flex-direction: column; }
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
         .user-details h3 {
-            color: white; font-size: 1rem; display: flex; align-items: center; gap: 6px;
+            color: white;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .edit-name-btn {
-            background: none; border: none; color: #8b9bb5; font-size: 0.9rem; cursor: pointer;
-            padding: 2px 6px; border-radius: 12px; transition: 0.2s;
+            background: none;
+            border: none;
+            color: #8b9bb5;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 12px;
+            transition: 0.2s;
         }
-        .edit-name-btn:active { color: #ffaa00; background: #1e232b; }
-        .user-details p { color: #8b9bb5; font-size: 0.75rem; }
+        .edit-name-btn:active {
+            color: #ffaa00;
+            background: #1e232b;
+        }
+        .user-details p {
+            color: #8b9bb5;
+            font-size: 0.75rem;
+        }
         .rank-display {
-            background: linear-gradient(135deg, #ffaa00, #ff8800); padding: 6px 12px; border-radius: 30px;
-            font-weight: bold; color: black; font-size: 0.8rem; text-align: center;
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: black;
+            font-size: 0.8rem;
+            text-align: center;
         }
         .coin-display {
-            background: linear-gradient(135deg, #ffaa00, #ff8800); padding: 6px 12px; border-radius: 30px;
-            display: flex; align-items: center; gap: 5px; font-weight: bold; color: black;
-            margin-top: 5px; font-size: 0.8rem;
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            padding: 6px 12px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+            color: black;
+            margin-top: 5px;
+            font-size: 0.8rem;
         }
         /* BUTTON STYLING */
         .menu-buttons {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
         }
         .menu-btn {
-            background: #1a1f2a; border: 2px solid #2f3540; border-radius: 16px; padding: 15px 10px;
-            text-align: center; cursor: pointer; min-height: 90px; display: flex;
-            flex-direction: column; justify-content: center; -webkit-tap-highlight-color: transparent;
+            background: #1a1f2a;
+            border: 2px solid #2f3540;
+            border-radius: 16px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
         }
-        .menu-btn:active { transform: scale(0.95); background: #2a2f3a; }
-        .menu-btn .icon { font-size: 1.8rem; margin-bottom: 5px; }
-        .menu-btn h3 { color: white; font-size: 0.95rem; margin-bottom: 3px; }
-        .menu-btn p { color: #8b9bb5; font-size: 0.7rem; }
-        .menu-btn.large { grid-column: span 2; min-height: 60px; flex-direction: row; align-items: center; gap: 10px; }
+        .menu-btn:active {
+            transform: scale(0.95);
+            background: #2a2f3a;
+        }
+        .menu-btn .icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .menu-btn h3 {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+        .menu-btn p {
+            color: #8b9bb5;
+            font-size: 0.7rem;
+        }
+        .menu-btn.large {
+            grid-column: span 2;
+            min-height: 60px;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
         /* DEEPSEEK BUTTON */
         .deepseek-btn {
-            grid-column: span 2; background: linear-gradient(135deg, #00c8ff, #0066ff);
-            border: 3px solid #ffffff; border-radius: 20px; padding: 15px; text-align: center;
-            cursor: pointer; margin-bottom: 5px; min-height: 100px; display: flex;
-            flex-direction: column; justify-content: center;
+            grid-column: span 2;
+            background: linear-gradient(135deg, #00c8ff, #0066ff);
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 5px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .deepseek-btn:active { transform: scale(0.98); }
-        .deepseek-btn .icon { font-size: 2.2rem; margin-bottom: 5px; }
-        .deepseek-btn h2 { color: white; font-size: 1.3rem; margin-bottom: 3px; }
+        .deepseek-btn:active {
+            transform: scale(0.98);
+        }
+        .deepseek-btn .icon {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+        .deepseek-btn h2 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 3px;
+        }
         /* CHATGPT BUTTON */
         .chatgpt-btn {
-            grid-column: span 2; background: linear-gradient(135deg, #10a37f, #0d8c6d);
-            border: 3px solid #ffffff; border-radius: 20px; padding: 12px; text-align: center;
-            cursor: pointer; margin-bottom: 5px;
+            grid-column: span 2;
+            background: linear-gradient(135deg, #10a37f, #0d8c6d);
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 5px;
         }
-        .chatgpt-btn:active { transform: scale(0.98); }
-        .chatgpt-btn h3 { color: white; font-size: 1.1rem; }
+        .chatgpt-btn:active {
+            transform: scale(0.98);
+        }
+        .chatgpt-btn h3 {
+            color: white;
+            font-size: 1.1rem;
+        }
         /* MATEMATIKA BUTTON */
         .math-btn {
-            grid-column: span 2; background: linear-gradient(135deg, #ffaa00, #ff6600);
-            border: 3px solid #ffffff; border-radius: 20px; padding: 10px; text-align: center;
-            cursor: pointer; margin-bottom: 5px;
+            grid-column: span 2;
+            background: linear-gradient(135deg, #ffaa00, #ff6600);
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 5px;
         }
         /* AI CHAT SCREENS */
         .ai-screen, .shop-screen, .profile-screen, .leaderboard-screen, .settings-screen, .editname-screen {
-            background: #0f1219; border-radius: 28px; border: 3px solid; padding: 20px;
-            display: none; height: 90vh; overflow-y: auto;
+            background: #0f1219;
+            border-radius: 28px;
+            border: 3px solid;
+            padding: 20px;
+            display: none;
+            height: 90vh;
+            overflow-y: auto;
         }
         .deepseek-screen { border-color: #00c8ff; }
         .chatgpt-screen { border-color: #10a37f; }
@@ -119,14 +287,22 @@
         .settings-screen { border-color: #ffaa00; }
         .editname-screen { border-color: #3b82f6; }
         .ai-header, .shop-header, .profile-header, .leaderboard-header, .settings-header, .editname-header {
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
         }
         .ai-header h1, .shop-header h1, .profile-header h1, .leaderboard-header h1, .settings-header h1, .editname-header h1 {
-            color: white; font-size: 1.3rem;
+            color: white;
+            font-size: 1.3rem;
         }
         .ai-header button, .shop-header button, .profile-header button, .leaderboard-header button, .settings-header button, .editname-header button {
-            background: #1a1f2a; border: 2px solid; color: white; padding: 8px 15px;
-            border-radius: 30px; cursor: pointer;
+            background: #1a1f2a;
+            border: 2px solid;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
         }
         .shop-header button { border-color: #ffaa00; }
         .profile-header button { border-color: #3b82f6; }
@@ -134,111 +310,294 @@
         .settings-header button { border-color: #ffaa00; }
         .editname-header button { border-color: #3b82f6; }
         .ai-messages {
-            height: 60vh; overflow-y: auto; padding: 15px; background: #1a1f2a; border-radius: 16px;
+            height: 60vh;
+            overflow-y: auto;
+            padding: 15px;
+            background: #1a1f2a;
+            border-radius: 16px;
             margin-bottom: 15px;
         }
         .message {
-            max-width: 80%; padding: 12px 15px; border-radius: 18px; font-size: 0.9rem; margin-bottom: 8px;
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
         }
-        .message.user { background: #3b82f6; color: white; margin-left: auto; }
-        .message.bot-deepseek { background: #1e2a3a; color: white; border: 1px solid #00c8ff; margin-right: auto; }
-        .message.bot-chatgpt { background: #1e2a3a; color: white; border: 1px solid #10a37f; margin-right: auto; }
-        .ai-input-area { display: flex; gap: 8px; margin-top: 10px; }
+        .message.user {
+            background: #3b82f6;
+            color: white;
+            margin-left: auto;
+        }
+        .message.bot-deepseek {
+            background: #1e2a3a;
+            color: white;
+            border: 1px solid #00c8ff;
+            margin-right: auto;
+        }
+        .message.bot-chatgpt {
+            background: #1e2a3a;
+            color: white;
+            border: 1px solid #10a37f;
+            margin-right: auto;
+        }
+        .ai-input-area {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
         .ai-input {
-            flex: 1; padding: 12px; background: #1a1f2a; border: 2px solid #2f3540;
-            border-radius: 25px; color: white;
+            flex: 1;
+            padding: 12px;
+            background: #1a1f2a;
+            border: 2px solid #2f3540;
+            border-radius: 25px;
+            color: white;
         }
         .ai-send {
-            border: none; border-radius: 25px; padding: 0 20px; color: black; font-weight: bold; cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            padding: 0 20px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
         }
         .deepseek-send { background: #00c8ff; }
         .chatgpt-send { background: #10a37f; }
         /* SHOP CONTENT */
-        .shop-content, .profile-content, .leaderboard-content, .settings-content, .editname-content { padding: 10px 0; }
-        .shop-title { color: #ffaa00; font-size: 1.2rem; margin-bottom: 10px; }
-        .skin-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .skin-item {
-            background: #0f1219; border: 2px solid #2f3540; border-radius: 12px; padding: 10px;
-            text-align: center; cursor: pointer;
+        .shop-content, .profile-content, .leaderboard-content, .settings-content, .editname-content {
+            padding: 10px 0;
         }
-        .skin-item:active { border-color: #ffaa00; }
-        .skin-item .preview { font-size: 2rem; margin-bottom: 5px; }
-        .skin-item h4 { color: white; font-size: 0.9rem; }
-        .skin-price { color: #ffaa00; font-weight: bold; font-size: 0.8rem; }
-        .skin-owned { color: #00ff88; font-size: 0.7rem; margin-top: 3px; }
+        .shop-title {
+            color: #ffaa00;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .skin-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .skin-item {
+            background: #0f1219;
+            border: 2px solid #2f3540;
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .skin-item:active {
+            border-color: #ffaa00;
+        }
+        .skin-item .preview {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .skin-item h4 {
+            color: white;
+            font-size: 0.9rem;
+        }
+        .skin-price {
+            color: #ffaa00;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .skin-owned {
+            color: #00ff88;
+            font-size: 0.7rem;
+            margin-top: 3px;
+        }
         /* PROFILE CONTENT */
         .profile-stats {
-            background: #1a1f2a; border-radius: 16px; padding: 20px; margin-bottom: 20px;
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
         .stat-item {
-            display: flex; justify-content: space-between; padding: 10px 0;
-            border-bottom: 1px solid #2f3540; color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2f3540;
+            color: white;
         }
-        .stat-item:last-child { border-bottom: none; }
-        .stat-label { color: #8b9bb5; }
-        .stat-value { color: #ffaa00; font-weight: bold; }
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        .stat-label {
+            color: #8b9bb5;
+        }
+        .stat-value {
+            color: #ffaa00;
+            font-weight: bold;
+        }
         .skin-list {
-            background: #1a1f2a; border-radius: 16px; padding: 20px;
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
         }
-        .skin-list h3 { color: white; margin-bottom: 10px; }
+        .skin-list h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
         .skin-tag {
-            display: inline-block; background: #0f1219; border: 1px solid #ffaa00;
-            border-radius: 20px; padding: 5px 12px; margin: 3px; color: #ffaa00;
+            display: inline-block;
+            background: #0f1219;
+            border: 1px solid #ffaa00;
+            border-radius: 20px;
+            padding: 5px 12px;
+            margin: 3px;
+            color: #ffaa00;
         }
         /* LEADERBOARD CONTENT */
         .leaderboard-list {
-            background: #1a1f2a; border-radius: 16px; padding: 15px;
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 15px;
         }
         .rank-row {
-            display: flex; justify-content: space-between; padding: 12px;
-            border-bottom: 1px solid #2f3540; color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #2f3540;
+            color: white;
         }
-        .rank-row:last-child { border-bottom: none; }
-        .rank-number { color: #ffaa00; font-weight: bold; width: 30px; }
-        .rank-name { flex: 1; }
-        .rank-wins { color: #8b9bb5; margin-right: 10px; }
-        .rank-badge { background: #333; color: #ffaa00; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; }
+        .rank-row:last-child {
+            border-bottom: none;
+        }
+        .rank-number {
+            color: #ffaa00;
+            font-weight: bold;
+            width: 30px;
+        }
+        .rank-name {
+            flex: 1;
+        }
+        .rank-wins {
+            color: #8b9bb5;
+            margin-right: 10px;
+        }
+        .rank-badge {
+            background: #333;
+            color: #ffaa00;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+        }
         /* SETTINGS & EDITNAME CONTENT */
         .settings-code, .editname-form {
-            background: #1a1f2a; border-radius: 16px; padding: 20px; text-align: center;
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
         }
-        .settings-code h3, .editname-form h3 { color: white; margin-bottom: 15px; }
+        .settings-code h3, .editname-form h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
         .code-input, .name-input {
-            width: 100%; padding: 12px; background: #0f1219; border: 2px solid #ffaa00;
-            border-radius: 30px; color: white; font-size: 1rem; text-align: center; margin-bottom: 15px;
+            width: 100%;
+            padding: 12px;
+            background: #0f1219;
+            border: 2px solid #ffaa00;
+            border-radius: 30px;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 15px;
         }
         .code-btn, .save-btn {
-            background: #ffaa00; border: none; border-radius: 30px; padding: 12px 20px;
-            color: black; font-weight: bold; cursor: pointer; width: 100%; margin-bottom: 10px;
+            background: #ffaa00;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
         }
-        .code-btn:active, .save-btn:active { background: #ff8800; }
+        .code-btn:active, .save-btn:active {
+            background: #ff8800;
+        }
         .cancel-btn {
-            background: #333; border: none; border-radius: 30px; padding: 12px 20px;
-            color: white; font-weight: bold; cursor: pointer; width: 100%;
+            background: #333;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
         }
-        .cancel-btn:active { background: #444; }
+        .cancel-btn:active {
+            background: #444;
+        }
         /* BATTLE SCREEN */
         .battle-screen {
-            background: #0f1219; border-radius: 28px; border: 1px solid #2a2f3a; padding: 20px; display: none;
+            background: #0f1219;
+            border-radius: 28px;
+            border: 1px solid #2a2f3a;
+            padding: 20px;
+            display: none;
         }
-        .battle-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .player-side { text-align: center; }
+        .battle-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .player-side {
+            text-align: center;
+        }
         .player-avatar {
-            width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: bold; font-size: 1.5rem; margin: 0 auto 5px; transition: 0.3s;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 5px;
+            transition: 0.3s;
         }
-        .vs { font-size: 1.5rem; color: #ffaa00; }
+        .vs {
+            font-size: 1.5rem;
+            color: #ffaa00;
+        }
         .cell {
-            aspect-ratio: 1; background: #1a1f2a; border: 2px solid #2f3540; border-radius: 10px;
-            display: flex; align-items: center; justify-content: center; font-size: 2rem;
-            color: white; cursor: pointer; transition: 0.2s;
+            aspect-ratio: 1;
+            background: #1a1f2a;
+            border: 2px solid #2f3540;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        .cell:active { background: #2a2f3a; }
-        .cell.x-blue { color: #3b82f6; text-shadow: 0 0 10px #3b82f6; }
-        .cell.x-red { color: #ff4d4d; text-shadow: 0 0 10px #ff4d4d; }
-        .cell.x-gold { color: gold; text-shadow: 0 0 15px gold; }
-        .cell.x-rainbow { animation: rainbowText 2s infinite; }
+        .cell:active {
+            background: #2a2f3a;
+        }
+        .cell.x-blue {
+            color: #3b82f6;
+            text-shadow: 0 0 10px #3b82f6;
+        }
+        .cell.x-red {
+            color: #ff4d4d;
+            text-shadow: 0 0 10px #ff4d4d;
+        }
+        .cell.x-gold {
+            color: gold;
+            text-shadow: 0 0 15px gold;
+        }
+        .cell.x-rainbow {
+            animation: rainbowText 2s infinite;
+        }
         @keyframes rainbowText {
             0% { color: red; text-shadow: 0 0 10px red; }
             20% { color: orange; text-shadow: 0 0 10px orange; }
@@ -247,35 +606,91 @@
             80% { color: blue; text-shadow: 0 0 10px blue; }
             100% { color: purple; text-shadow: 0 0 10px purple; }
         }
-        .cell.o-default { color: #ff4d4d; text-shadow: 0 0 10px #ff4d4d; }
+        .cell.o-default {
+            color: #ff4d4d;
+            text-shadow: 0 0 10px #ff4d4d;
+        }
         .back-btn {
-            background: #1a1f2a; border: 1px solid #2f3540; color: white; padding: 6px 12px;
-            border-radius: 30px; cursor: pointer;
+            background: #1a1f2a;
+            border: 1px solid #2f3540;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 30px;
+            cursor: pointer;
         }
         .reset-btn {
-            width: 100%; padding: 10px; background: #1a1f2a; border: 1px solid #2f3540;
-            border-radius: 30px; color: white; cursor: pointer; margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background: #1a1f2a;
+            border: 1px solid #2f3540;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
         }
         .cheat-btn {
-            width: 100%; padding: 10px; background: #ffaa00; border: 2px solid #ffaa00;
-            border-radius: 30px; color: black; font-weight: bold; cursor: pointer; margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background: #ffaa00;
+            border: 2px solid #ffaa00;
+            border-radius: 30px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
         }
-        .cheat-btn:active { background: #ff8800; }
-        .mode-indicator { color: #ffaa00; font-weight: bold; margin-top: 5px; }
+        .cheat-btn:active {
+            background: #ff8800;
+        }
+        .mode-indicator {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-top: 5px;
+        }
         .toggle-effects {
-            background: #1a1f2a; border: 2px solid #ffaa00; border-radius: 30px; padding: 8px 12px;
-            color: white; font-weight: bold; cursor: pointer; margin-top: 5px; text-align: center;
+            background: #1a1f2a;
+            border: 2px solid #ffaa00;
+            border-radius: 30px;
+            padding: 8px 12px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            text-align: center;
         }
-        .toggle-effects:active { background: #ffaa00; color: black; }
+        .toggle-effects:active {
+            background: #ffaa00;
+            color: black;
+        }
         /* RANK PROGRESSION */
         .rank-progression {
-            margin-top: 20px; padding: 15px; background: #1a1f2a; border-radius: 16px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1f2a;
+            border-radius: 16px;
         }
-        .rank-progression h3 { color: white; font-size: 1.1rem; margin-bottom: 10px; }
-        .rank-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .rank-item { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; }
+        .rank-progression h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+        }
         .rank-badge {
-            display: inline-block; padding: 3px 10px; border-radius: 30px; font-weight: bold; font-size: 0.7rem;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.7rem;
         }
         .rank-bronze { background: #cd7f32; color: black; }
         .rank-warrior { background: #a0a0a0; color: black; }
@@ -289,11 +704,21 @@
         .rank-mytic-honor { background: linear-gradient(45deg, #ff0000, #ffaa00); color: white; }
         .rank-mytic-glory { background: linear-gradient(45deg, #ffaa00, #ffffff); color: black; }
         .rank-mytic-immortal { background: linear-gradient(45deg, #ffd700, #ffaa00, #ffffff); color: black; }
-        .win-point { color: #8b9bb5; margin-left: auto; }
+        .win-point {
+            color: #8b9bb5;
+            margin-left: auto;
+        }
         .notification {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            background: #1e232b; color: white; padding: 10px 20px; border-radius: 30px;
-            border: 2px solid #3b82f6; z-index: 1000;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e232b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid #3b82f6;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -405,12 +830,11 @@
                     <div class="rank-item"><span class="rank-badge rank-elite">Elite</span> <span class="win-point">25-39 win</span></div>
                     <div class="rank-item"><span class="rank-badge rank-platinum">Platinum</span> <span class="win-point">40-54 win</span></div>
                     <div class="rank-item"><span class="rank-badge rank-diamond">Diamond</span> <span class="win-point">55-89 win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-epic">Epic</span> <span class="win-point">90-99 win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-legends">Legends</span> <span class="win-point">100-125 win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-mytic">Mytic</span> <span class="win-point">126-149 win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-mytic-honor">Mytic Honor</span> <span class="win-point">150-199 win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-mytic-glory">Mytic Glory</span> <span class="win-point">200-? win</span></div>
-                    <div class="rank-item"><span class="rank-badge rank-mytic-immortal">Mytic Immortal</span> <span class="win-point">200-5060 (naik tiap 20 win)</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-legends">Legends</span> <span class="win-point">90-99 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic">Mytic</span> <span class="win-point">100-125 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic-honor">Mytic Honor</span> <span class="win-point">126-149 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic-glory">Mytic Glory</span> <span class="win-point">150-199 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic-immortal">Mytic Immortal</span> <span class="win-point">200-5060 win (naik tiap 20 win)</span></div>
                 </div>
             </div>
         </div>
@@ -600,7 +1024,6 @@
         // ==================== DATA ====================
         let users = JSON.parse(localStorage.getItem('darcord_users_multi')) || [];
         let currentUser = null;
-        
         let battleGame = {
             board: ['', '', '', '', '', '', '', '', ''],
             currentPlayer: 'X',
@@ -629,7 +1052,8 @@
         // ==================== LOGIN ====================
         window.handleLogin = function() {
             let email = document.getElementById('loginEmail').value.trim();
-            if (!email) { showNotif('Masukkan email!'); return; }
+            if (!email) { showNotif('❌ Masukkan email!'); return; }
+            if (!email.includes('@') || !email.includes('.')) { showNotif('❌ Email tidak valid!'); return; }
             
             let user = users.find(u => u.email === email);
             if (!user) {
@@ -701,11 +1125,11 @@
         window.saveNewName = function() {
             let newName = document.getElementById('newNameInput').value.trim();
             if (newName === '') {
-                showNotif('Nama tidak boleh kosong!');
+                showNotif('❌ Nama tidak boleh kosong!');
                 return;
             }
             if (newName.length > 20) {
-                showNotif('Nama terlalu panjang! Maksimal 20 karakter.');
+                showNotif('❌ Nama terlalu panjang! Maksimal 20 karakter.');
                 return;
             }
             currentUser.name = newName;
@@ -765,11 +1189,11 @@
         window.buySkin = function(skin) {
             let prices = { blue: 50, red: 75, gold: 150, rainbow: 200 };
             if (currentUser.skins[skin]) {
-                showNotif('Kamu sudah punya skin ini!');
+                showNotif('⚠️ Kamu sudah punya skin ini!');
                 return;
             }
             if (currentUser.coins < prices[skin]) {
-                showNotif('Koin tidak cukup!');
+                showNotif('❌ Koin tidak cukup!');
                 return;
             }
             currentUser.coins -= prices[skin];
@@ -806,7 +1230,7 @@
             showScreen('profileScreen');
         };
         
-        // ==================== LEADERBOARD (SEMUA AKUN) ====================
+        // ==================== LEADERBOARD ====================
         window.openLeaderboard = function() {
             let lbDiv = document.getElementById('leaderboardList');
             let sorted = [...users].sort((a, b) => b.wins - a.wins);
