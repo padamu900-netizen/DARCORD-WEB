@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DARCORD • Cheat 20x + Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+        /* Background pilihan */
+        body.bg-default { background: #0a0c10; }
+        body.bg-gray { background: #1a1e26; }
+        body.bg-blue { background: #0a1a2a; }
+        body.bg-purple { background: #1a0a2a; }
+        body.bg-red { background: #2a0a0a; }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+        }
+        /* MENU SCREEN */
+        .menu-screen {
+            background: rgba(15, 18, 25, 0.95);
+            border-radius: 28px;
+            border: 1px solid #2a2f3a;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            display: block;
+            backdrop-filter: blur(5px);
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #2f3540;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+        /* Efek skin (13 macam, termasuk langka) */
+        .user-avatar.blue-glow { box-shadow: 0 0 15px #3b82f6; border: 2px solid #3b82f6; }
+        .user-avatar.red-flame { box-shadow: 0 0 15px #ff4d4d; border: 2px solid #ff4d4d; }
+        .user-avatar.gold-legend { box-shadow: 0 0 20px gold; border: 2px solid gold; }
+        .user-avatar.rainbow { animation: rainbowGlow 2s infinite; border: 2px solid white; }
+        .user-avatar.neon-green { box-shadow: 0 0 20px #39ff14; border: 2px solid #39ff14; }
+        .user-avatar.purple-haze { box-shadow: 0 0 20px #a020f0; border: 2px solid #a020f0; }
+        .user-avatar.cyber-blue { box-shadow: 0 0 20px #00ffff; border: 2px solid #00ffff; }
+        .user-avatar.lava-orange { box-shadow: 0 0 20px #ff4500; border: 2px solid #ff4500; }
+        .user-avatar.pink-candy { box-shadow: 0 0 20px #ff69b4; border: 2px solid #ff69b4; }
+        .user-avatar.electric-yellow { box-shadow: 0 0 20px #ffff00; border: 2px solid #ffff00; }
+        .user-avatar.ice-blue { box-shadow: 0 0 20px #00b7ff; border: 2px solid #00b7ff; }
+        .user-avatar.magma-red { box-shadow: 0 0 20px #ff3300; border: 2px solid #ff3300; }
+        /* Efek langka Darcord */
+        .user-avatar.darcord-rare {
+            animation: darcordGlow 1.5s infinite;
+            border: 3px solid gold;
+        }
+        @keyframes darcordGlow {
+            0% { box-shadow: 0 0 20px gold; background: linear-gradient(135deg, #ffd700, #ff4500); }
+            50% { box-shadow: 0 0 40px #ff4500; background: linear-gradient(135deg, #ff4500, #ffd700); }
+            100% { box-shadow: 0 0 20px gold; background: linear-gradient(135deg, #ffd700, #ff4500); }
+        }
+
+        @keyframes rainbowGlow {
+            0% { box-shadow: 0 0 15px red; }
+            20% { box-shadow: 0 0 15px orange; }
+            40% { box-shadow: 0 0 15px yellow; }
+            60% { box-shadow: 0 0 15px green; }
+            80% { box-shadow: 0 0 15px blue; }
+            100% { box-shadow: 0 0 15px purple; }
+        }
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .user-details h3 {
+            color: white;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .edit-name-btn {
+            background: none;
+            border: none;
+            color: #8b9bb5;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+        .edit-name-btn:active {
+            color: #ffaa00;
+            background: #1e232b;
+        }
+        .user-details p {
+            color: #8b9bb5;
+            font-size: 0.75rem;
+        }
+        .rank-display {
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: black;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .coin-display {
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            padding: 6px 12px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+            color: black;
+            margin-top: 5px;
+            font-size: 0.8rem;
+        }
+        /* BUTTON STYLING */
+        .menu-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .menu-btn {
+            background: #1a1f2a;
+            border: 2px solid #2f3540;
+            border-radius: 16px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .menu-btn:active {
+            transform: scale(0.95);
+            background: #2a2f3a;
+        }
+        .menu-btn .icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .menu-btn h3 {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+        .menu-btn p {
+            color: #8b9bb5;
+            font-size: 0.7rem;
+        }
+        .menu-btn.large {
+            grid-column: span 2;
+            min-height: 60px;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+        /* DEEPSEEK BUTTON */
+        .deepseek-btn {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #00c8ff, #0066ff);
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 5px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .deepseek-btn:active {
+            transform: scale(0.98);
+        }
+        .deepseek-btn .icon {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+        .deepseek-btn h2 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 3px;
+        }
+        /* CHATGPT BUTTON */
+        .chatgpt-btn {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #10a37f, #0d8c6d);
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        .chatgpt-btn:active {
+            transform: scale(0.98);
+        }
+        .chatgpt-btn h3 {
+            color: white;
+            font-size: 1.1rem;
+        }
+        /* MATEMATIKA BUTTON */
+        .math-btn {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #ffaa00, #ff6600);
+            border: 3px solid #ffffff;
+            border-radius: 20px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        /* AI CHAT SCREENS */
+        .ai-screen, .shop-screen, .profile-screen, .leaderboard-screen, .settings-screen, .editname-screen, .ludo-screen, .bg-screen {
+            background: rgba(15, 18, 25, 0.95);
+            border-radius: 28px;
+            border: 3px solid;
+            padding: 20px;
+            display: none;
+            height: 90vh;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+        .deepseek-screen { border-color: #00c8ff; }
+        .chatgpt-screen { border-color: #10a37f; }
+        .shop-screen { border-color: #ffaa00; }
+        .profile-screen { border-color: #3b82f6; }
+        .leaderboard-screen { border-color: #ffaa00; }
+        .settings-screen { border-color: #ffaa00; }
+        .editname-screen { border-color: #3b82f6; }
+        .ludo-screen { border-color: #ffaa00; }
+        .bg-screen { border-color: #ffaa00; }
+        
+        .ai-header, .shop-header, .profile-header, .leaderboard-header, .settings-header, .editname-header, .ludo-header, .bg-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .ai-header h1, .shop-header h1, .profile-header h1, .leaderboard-header h1, .settings-header h1, .editname-header h1, .ludo-header h1, .bg-header h1 {
+            color: white;
+            font-size: 1.3rem;
+        }
+        .ai-header button, .shop-header button, .profile-header button, .leaderboard-header button, .settings-header button, .editname-header button, .ludo-header button, .bg-header button {
+            background: #1a1f2a;
+            border: 2px solid;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .shop-header button { border-color: #ffaa00; }
+        .profile-header button { border-color: #3b82f6; }
+        .leaderboard-header button { border-color: #ffaa00; }
+        .settings-header button { border-color: #ffaa00; }
+        .editname-header button { border-color: #3b82f6; }
+        .ludo-header button { border-color: #ffaa00; }
+        .bg-header button { border-color: #ffaa00; }
+        
+        .ai-messages {
+            height: 60vh;
+            overflow-y: auto;
+            padding: 15px;
+            background: #1a1f2a;
+            border-radius: 16px;
+            margin-bottom: 15px;
+        }
+        .message {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .message.user {
+            background: #3b82f6;
+            color: white;
+            margin-left: auto;
+        }
+        .message.bot-deepseek {
+            background: #1e2a3a;
+            color: white;
+            border: 1px solid #00c8ff;
+            margin-right: auto;
+        }
+        .message.bot-chatgpt {
+            background: #1e2a3a;
+            color: white;
+            border: 1px solid #10a37f;
+            margin-right: auto;
+        }
+        .ai-input-area {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .ai-input {
+            flex: 1;
+            padding: 12px;
+            background: #1a1f2a;
+            border: 2px solid #2f3540;
+            border-radius: 25px;
+            color: white;
+        }
+        .ai-send {
+            border: none;
+            border-radius: 25px;
+            padding: 0 20px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .deepseek-send { background: #00c8ff; }
+        .chatgpt-send { background: #10a37f; }
+        
+        /* SHOP CONTENT */
+        .shop-content, .profile-content, .leaderboard-content, .settings-content, .editname-content, .ludo-content, .bg-content {
+            padding: 10px 0;
+        }
+        .shop-title {
+            color: #ffaa00;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .skin-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .skin-item {
+            background: #0f1219;
+            border: 2px solid #2f3540;
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .skin-item:active {
+            border-color: #ffaa00;
+        }
+        .skin-item .preview {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .skin-item h4 {
+            color: white;
+            font-size: 0.9rem;
+        }
+        .skin-price {
+            color: #ffaa00;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .skin-owned {
+            color: #00ff88;
+            font-size: 0.7rem;
+            margin-top: 3px;
+        }
+        
+        /* PROFILE CONTENT */
+        .profile-stats {
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2f3540;
+            color: white;
+        }
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        .stat-label {
+            color: #8b9bb5;
+        }
+        .stat-value {
+            color: #ffaa00;
+            font-weight: bold;
+        }
+        .skin-list {
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .skin-list h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        .skin-tag {
+            display: inline-block;
+            background: #0f1219;
+            border: 1px solid #ffaa00;
+            border-radius: 20px;
+            padding: 5px 12px;
+            margin: 3px;
+            color: #ffaa00;
+        }
+        
+        /* LEADERBOARD CONTENT */
+        .leaderboard-list {
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 15px;
+        }
+        .rank-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #2f3540;
+            color: white;
+        }
+        .rank-row:last-child {
+            border-bottom: none;
+        }
+        .rank-number {
+            color: #ffaa00;
+            font-weight: bold;
+            width: 30px;
+        }
+        .rank-name {
+            flex: 1;
+        }
+        .rank-wins {
+            color: #8b9bb5;
+            margin-right: 10px;
+        }
+        .rank-badge {
+            background: #333;
+            color: #ffaa00;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+        }
+        
+        /* SETTINGS & EDITNAME CONTENT */
+        .settings-code, .editname-form, .bg-options {
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+        .settings-code h3, .editname-form h3, .bg-options h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .code-input, .name-input {
+            width: 100%;
+            padding: 12px;
+            background: #0f1219;
+            border: 2px solid #ffaa00;
+            border-radius: 30px;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .code-btn, .save-btn, .bg-btn {
+            background: #ffaa00;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .code-btn:active, .save-btn:active, .bg-btn:active {
+            background: #ff8800;
+        }
+        .cancel-btn {
+            background: #333;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+        .cancel-btn:active {
+            background: #444;
+        }
+        .ludo-btn {
+            background: #ffaa00;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+        .ludo-btn:active {
+            background: #ff8800;
+        }
+        
+        /* LUDO CONTENT */
+        .ludo-board {
+            background: #1a1f2a;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+        .ludo-players {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .player-red, .player-blue {
+            padding: 10px;
+            border-radius: 12px;
+            width: 40%;
+        }
+        .player-red {
+            background: #ff4d4d20;
+            border: 2px solid #ff4d4d;
+        }
+        .player-blue {
+            background: #3b82f620;
+            border: 2px solid #3b82f6;
+        }
+        .player-name {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .player-pos {
+            font-size: 2rem;
+            color: #ffaa00;
+        }
+        .dice-area {
+            margin: 20px 0;
+        }
+        .dice-btn {
+            background: #ffaa00;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            color: black;
+            font-weight: bold;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .dice-btn:active {
+            background: #ff8800;
+        }
+        .dice-result {
+            font-size: 3rem;
+            color: white;
+            margin-top: 10px;
+        }
+        .turn-indicator {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .ludo-reset {
+            background: #333;
+            border: none;
+            border-radius: 30px;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* BACKGROUND SCREEN */
+        .bg-options {
+            text-align: center;
+        }
+        .bg-option {
+            background: #0f1219;
+            border: 2px solid #2f3540;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: white;
+        }
+        .bg-option:active {
+            border-color: #ffaa00;
+        }
+        .bg-option.default { border-left: 5px solid #0a0c10; }
+        .bg-option.gray { border-left: 5px solid #1a1e26; }
+        .bg-option.blue { border-left: 5px solid #0a1a2a; }
+        .bg-option.purple { border-left: 5px solid #1a0a2a; }
+        .bg-option.red { border-left: 5px solid #2a0a0a; }
+        
+        /* BATTLE SCREEN */
+        .battle-screen {
+            background: rgba(15, 18, 25, 0.95);
+            border-radius: 28px;
+            border: 1px solid #2a2f3a;
+            padding: 20px;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+        .battle-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .player-side {
+            text-align: center;
+        }
+        .player-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 5px;
+            transition: 0.3s;
+        }
+        .vs {
+            font-size: 1.5rem;
+            color: #ffaa00;
+        }
+        .cell {
+            aspect-ratio: 1;
+            background: #1a1f2a;
+            border: 2px solid #2f3540;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .cell:active {
+            background: #2a2f3a;
+        }
+        .cell.x-blue { color: #3b82f6; text-shadow: 0 0 10px #3b82f6; }
+        .cell.x-red { color: #ff4d4d; text-shadow: 0 0 10px #ff4d4d; }
+        .cell.x-gold { color: gold; text-shadow: 0 0 15px gold; }
+        .cell.x-rainbow { animation: rainbowText 2s infinite; }
+        .cell.x-neon-green { color: #39ff14; text-shadow: 0 0 10px #39ff14; }
+        .cell.x-purple-haze { color: #a020f0; text-shadow: 0 0 10px #a020f0; }
+        .cell.x-cyber-blue { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        .cell.x-lava-orange { color: #ff4500; text-shadow: 0 0 10px #ff4500; }
+        .cell.x-pink-candy { color: #ff69b4; text-shadow: 0 0 10px #ff69b4; }
+        .cell.x-electric-yellow { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+        .cell.x-ice-blue { color: #00b7ff; text-shadow: 0 0 10px #00b7ff; }
+        .cell.x-magma-red { color: #ff3300; text-shadow: 0 0 10px #ff3300; }
+        .cell.x-darcord-rare {
+            animation: darcordXGlow 1.5s infinite;
+        }
+        @keyframes darcordXGlow {
+            0% { color: gold; text-shadow: 0 0 20px gold; }
+            50% { color: #ff4500; text-shadow: 0 0 40px #ff4500; }
+            100% { color: gold; text-shadow: 0 0 20px gold; }
+        }
+
+        @keyframes rainbowText {
+            0% { color: red; text-shadow: 0 0 10px red; }
+            20% { color: orange; text-shadow: 0 0 10px orange; }
+            40% { color: yellow; text-shadow: 0 0 10px yellow; }
+            60% { color: green; text-shadow: 0 0 10px green; }
+            80% { color: blue; text-shadow: 0 0 10px blue; }
+            100% { color: purple; text-shadow: 0 0 10px purple; }
+        }
+        .cell.o-default {
+            color: #ff4d4d;
+            text-shadow: 0 0 10px #ff4d4d;
+        }
+        .back-btn {
+            background: #1a1f2a;
+            border: 1px solid #2f3540;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .reset-btn {
+            width: 100%;
+            padding: 10px;
+            background: #1a1f2a;
+            border: 1px solid #2f3540;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .cheat-btn {
+            width: 100%;
+            padding: 10px;
+            background: #ffaa00;
+            border: 2px solid #ffaa00;
+            border-radius: 30px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .cheat-btn:active {
+            background: #ff8800;
+        }
+        .win20-btn {
+            width: 100%;
+            padding: 10px;
+            background: #ff4500;
+            border: 2px solid #ff4500;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .win20-btn:active {
+            background: #ff3300;
+        }
+        .mode-indicator {
+            color: #ffaa00;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .toggle-effects {
+            background: #1a1f2a;
+            border: 2px solid #ffaa00;
+            border-radius: 30px;
+            padding: 8px 12px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .toggle-effects:active {
+            background: #ffaa00;
+            color: black;
+        }
+        /* RANK PROGRESSION */
+        .rank-progression {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1f2a;
+            border-radius: 16px;
+        }
+        .rank-progression h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+        }
+        .rank-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.7rem;
+        }
+        .rank-bronze { background: #cd7f32; color: black; }
+        .rank-warrior { background: #a0a0a0; color: black; }
+        .rank-silver { background: #c0c0c0; color: black; }
+        .rank-elite { background: #4a5a6a; color: white; }
+        .rank-platinum { background: #00aaff; color: white; }
+        .rank-diamond { background: #00ffff; color: black; }
+        .rank-epic { background: #ff00aa; color: white; }
+        .rank-legends { background: #ffaa00; color: black; }
+        .rank-mytic { background: #ff0000; color: white; }
+        .rank-mytic-honor { background: linear-gradient(45deg, #ff0000, #ffaa00); color: white; }
+        .rank-mytic-glory { background: linear-gradient(45deg, #ffaa00, #ffffff); color: black; }
+        .rank-mytic-immortal { background: linear-gradient(45deg, #ffd700, #ffaa00, #ffffff); color: black; }
+        .win-point {
+            color: #8b9bb5;
+            margin-left: auto;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e232b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid #3b82f6;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="bg-default">
+    <div class="container">
+        <!-- MENU SCREEN -->
+        <div id="menuScreen" class="menu-screen">
+            <div class="top-bar">
+                <div class="user-info">
+                    <div class="user-avatar" id="menuAvatar">B</div>
+                    <div class="user-details">
+                        <h3>
+                            <span id="menuUsername">BRONZE</span>
+                            <button class="edit-name-btn" onclick="window.openEditName()" title="Ubah nama">✏️</button>
+                        </h3>
+                        <p>Player</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="rank-display" id="menuRank">Bronze</div>
+                    <div class="coin-display">
+                        <span>🪙</span>
+                        <span id="coinCount">100</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-buttons">
+                <!-- DEEPSEEK BUTTON -->
+                <div class="deepseek-btn" onclick="window.openDeepSeek()">
+                    <div class="icon">🤖</div>
+                    <h2>DEEPSEEK AI</h2>
+                </div>
+                <!-- CHATGPT BUTTON -->
+                <div class="chatgpt-btn" onclick="window.openChatGPT()">
+                    <div class="icon">💬</div>
+                    <h3>CHATGPT</h3>
+                </div>
+                <!-- MATEMATIKA BUTTON -->
+                <div class="math-btn" onclick="window.openMathMode()">
+                    <div class="icon">🧮</div>
+                    <h3>MATEMATIKA</h3>
+                </div>
+                <!-- BATTLE VS AI (TICTACTOE) -->
+                <div class="menu-btn" onclick="window.startBattle('ai')">
+                    <div class="icon">⚔️</div>
+                    <h3>VS AI</h3>
+                    <p>TicTacToe lawan AI</p>
+                </div>
+                <!-- BATTLE 2 PLAYER (TICTACTOE) -->
+                <div class="menu-btn" onclick="window.startBattle('pvp')">
+                    <div class="icon">👥</div>
+                    <h3>2 PLAYER</h3>
+                    <p>TicTacToe lawan teman</p>
+                </div>
+                <!-- SHOP BUTTON -->
+                <div class="menu-btn" onclick="window.openShop()">
+                    <div class="icon">🛒</div>
+                    <h3>Shop</h3>
+                    <p>Beli skin</p>
+                </div>
+                <!-- PROFILE BUTTON -->
+                <div class="menu-btn" onclick="window.openProfile()">
+                    <div class="icon">👤</div>
+                    <h3>Profile</h3>
+                    <p>Lihat data</p>
+                </div>
+                <!-- LEADERBOARD BUTTON -->
+                <div class="menu-btn" onclick="window.openLeaderboard()">
+                    <div class="icon">🏆</div>
+                    <h3>Rank</h3>
+                    <p>Peringkat</p>
+                </div>
+                <!-- SETTINGS BUTTON -->
+                <div class="menu-btn" onclick="window.openSettings()">
+                    <div class="icon">⚙️</div>
+                    <h3>Settings</h3>
+                    <p>Kode rahasia + BG</p>
+                </div>
+                <!-- RESET AKUN -->
+                <div class="menu-btn large" onclick="window.resetAkun()">
+                    <div class="icon">🔄</div>
+                    <h3>Reset Akun</h3>
+                    <p>Buat akun baru</p>
+                </div>
+                <!-- TOMBOL ON/OFF EFEK -->
+                <div class="menu-btn large toggle-effects" onclick="window.toggleEffects()">
+                    <span id="effectsText">✨ Efek: ON</span>
+                </div>
+            </div>
+            
+            <!-- RANK PROGRESSION -->
+            <div class="rank-progression">
+                <h3>🏆 Rank Progression</h3>
+                <div class="rank-grid">
+                    <div class="rank-item"><span class="rank-badge rank-bronze">Bronze</span> <span class="win-point">1-4 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-warrior">Warrior</span> <span class="win-point">5-14 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-silver">Silver</span> <span class="win-point">15-24 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-elite">Elite</span> <span class="win-point">25-39 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-platinum">Platinum</span> <span class="win-point">40-54 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-diamond">Diamond</span> <span class="win-point">55-89 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-legends">Legends</span> <span class="win-point">90-99 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic">Mytic</span> <span class="win-point">100-125 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic-honor">Mytic Honor</span> <span class="win-point">126-149 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic-glory">Mytic Glory</span> <span class="win-point">150-199 win</span></div>
+                    <div class="rank-item"><span class="rank-badge rank-mytic-immortal">Mytic Immortal</span> <span class="win-point">200-5060 win (naik tiap 20 win)</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SHOP SCREEN (12 SKIN) -->
+        <div id="shopScreen" class="shop-screen">
+            <div class="shop-header">
+                <h1>🛒 SKIN SHOP</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="shop-content">
+                <div class="skin-grid">
+                    <!-- 12 skin (saya singkat, di kode asli tetap lengkap) -->
+                    <div class="skin-item" onclick="window.buySkin('blue')"><div class="preview" style="color:#3b82f6;">🔵</div><h4>Blue Glow</h4><div class="skin-price">🪙 50</div><div class="skin-owned" id="skinBlue">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('red')"><div class="preview" style="color:#ff4d4d;">🔴</div><h4>Red Flame</h4><div class="skin-price">🪙 75</div><div class="skin-owned" id="skinRed">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('gold')"><div class="preview" style="color:#ffaa00;">⭐</div><h4>Gold Legend</h4><div class="skin-price">🪙 150</div><div class="skin-owned" id="skinGold">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('rainbow')"><div class="preview" style="color:#ff00ff;">🌈</div><h4>Rainbow</h4><div class="skin-price">🪙 200</div><div class="skin-owned" id="skinRainbow">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('neon')"><div class="preview" style="color:#39ff14;">💚</div><h4>Neon Green</h4><div class="skin-price">🪙 250</div><div class="skin-owned" id="skinNeon">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('purple')"><div class="preview" style="color:#a020f0;">💜</div><h4>Purple Haze</h4><div class="skin-price">🪙 300</div><div class="skin-owned" id="skinPurple">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('cyber')"><div class="preview" style="color:#00ffff;">💙</div><h4>Cyber Blue</h4><div class="skin-price">🪙 350</div><div class="skin-owned" id="skinCyber">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('lava')"><div class="preview" style="color:#ff4500;">🧡</div><h4>Lava Orange</h4><div class="skin-price">🪙 400</div><div class="skin-owned" id="skinLava">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('pink')"><div class="preview" style="color:#ff69b4;">🌸</div><h4>Pink Candy</h4><div class="skin-price">🪙 450</div><div class="skin-owned" id="skinPink">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('yellow')"><div class="preview" style="color:#ffff00;">💛</div><h4>Electric Yellow</h4><div class="skin-price">🪙 500</div><div class="skin-owned" id="skinYellow">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('ice')"><div class="preview" style="color:#00b7ff;">❄️</div><h4>Ice Blue</h4><div class="skin-price">🪙 550</div><div class="skin-owned" id="skinIce">Belum</div></div>
+                    <div class="skin-item" onclick="window.buySkin('magma')"><div class="preview" style="color:#ff3300;">🔥</div><h4>Magma Red</h4><div class="skin-price">🪙 600</div><div class="skin-owned" id="skinMagma">Belum</div></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROFILE SCREEN -->
+        <div id="profileScreen" class="profile-screen">
+            <div class="profile-header">
+                <h1>👤 PROFILE</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="profile-content">
+                <div class="profile-stats">
+                    <div class="stat-item" onclick="window.openEditName()" style="cursor: pointer;">
+                        <span class="stat-label">Nama</span>
+                        <span class="stat-value" id="profileName">BRONZE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Koin</span>
+                        <span class="stat-value" id="profileCoins">100</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Wins</span>
+                        <span class="stat-value" id="profileWins">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Rank</span>
+                        <span class="stat-value" id="profileRank">Bronze</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Efek</span>
+                        <span class="stat-value" id="profileEffects">ON</span>
+                    </div>
+                </div>
+                <div class="skin-list">
+                    <h3>🎨 Skin yang Dimiliki</h3>
+                    <div id="profileSkins"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LEADERBOARD SCREEN -->
+        <div id="leaderboardScreen" class="leaderboard-screen">
+            <div class="leaderboard-header">
+                <h1>🏆 LEADERBOARD</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="leaderboard-content">
+                <div class="leaderboard-list" id="leaderboardList"></div>
+            </div>
+        </div>
+        
+        <!-- SETTINGS SCREEN -->
+        <div id="settingsScreen" class="settings-screen">
+            <div class="settings-header">
+                <h1>⚙️ SETTINGS</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="settings-content">
+                <div class="settings-code">
+                    <h3>Masukkan Kode Rahasia</h3>
+                    <input type="text" id="codeInput" class="code-input" placeholder="******" maxlength="10">
+                    <button class="code-btn" onclick="window.redeemCode()">TUKARKAN KODE</button>
+                    
+                    <button class="ludo-btn" onclick="window.openLudo()">🎲 MAIN LUDO</button>
+                    <button class="ludo-btn" onclick="window.openBGSelector()">🖼️ GANTI BACKGROUND</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BACKGROUND SELECTOR SCREEN -->
+        <div id="bgScreen" class="bg-screen">
+            <div class="bg-header">
+                <h1>🖼️ PILIH BACKGROUND</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="bg-content">
+                <div class="bg-options">
+                    <div class="bg-option default" onclick="window.setBackground('default')">🌑 Default (Hitam)</div>
+                    <div class="bg-option gray" onclick="window.setBackground('gray')">🌫️ Abu-Abu Gelap</div>
+                    <div class="bg-option blue" onclick="window.setBackground('blue')">💙 Biru Tua</div>
+                    <div class="bg-option purple" onclick="window.setBackground('purple')">💜 Ungu Tua</div>
+                    <div class="bg-option red" onclick="window.setBackground('red')">❤️ Merah Tua</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EDIT NAME SCREEN -->
+        <div id="editNameScreen" class="editname-screen">
+            <div class="editname-header">
+                <h1>✏️ UBAH NAMA</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="editname-content">
+                <div class="editname-form">
+                    <h3>Masukkan Nama Baru</h3>
+                    <input type="text" id="newNameInput" class="name-input" placeholder="Nama (max 20 karakter)" maxlength="20">
+                    <button class="save-btn" onclick="window.saveNewName()">SIMPAN</button>
+                    <button class="cancel-btn" onclick="window.backToProfile()">BATAL</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LUDO SCREEN -->
+        <div id="ludoScreen" class="ludo-screen">
+            <div class="ludo-header">
+                <h1>🎲 LUDO</h1>
+                <button onclick="window.backToMenu()">← Back</button>
+            </div>
+            <div class="ludo-content">
+                <div class="ludo-board">
+                    <div class="ludo-players">
+                        <div class="player-red">
+                            <div class="player-name">🔴 MERAH</div>
+                            <div class="player-pos" id="redPos">0</div>
+                        </div>
+                        <div class="player-blue">
+                            <div class="player-name">🔵 BIRU</div>
+                            <div class="player-pos" id="bluePos">0</div>
+                        </div>
+                    </div>
+                    <div class="dice-area">
+                        <button class="dice-btn" onclick="window.rollDice()">🎲 GULUNG</button>
+                        <div class="dice-result" id="diceResult">⚀</div>
+                    </div>
+                    <div class="turn-indicator" id="ludoTurn">Giliran: MERAH</div>
+                    <button class="ludo-reset" onclick="window.resetLudo()">↻ Reset Game</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DEEPSEEK CHAT SCREEN -->
+        <div id="deepseekScreen" class="ai-screen deepseek-screen">
+            <div class="ai-header">
+                <h1>🤖 DEEPSEEK</h1>
+                <button onclick="window.backToMenu()">←</button>
+            </div>
+            <div class="ai-messages" id="deepseekMessages">
+                <div class="message bot-deepseek">Halo! Ada yang bisa dibantu?</div>
+            </div>
+            <div class="ai-input-area">
+                <input type="text" id="deepseekInput" class="ai-input" placeholder="Tanya...">
+                <button class="ai-send deepseek-send" onclick="window.sendDeepSeekMessage()">Kirim</button>
+            </div>
+        </div>
+        
+        <!-- CHATGPT CHAT SCREEN -->
+        <div id="chatgptScreen" class="ai-screen chatgpt-screen">
+            <div class="ai-header">
+                <h1>💬 CHATGPT</h1>
+                <button onclick="window.backToMenu()">←</button>
+            </div>
+            <div class="ai-messages" id="chatgptMessages">
+                <div class="message bot-chatgpt">Halo! Aku ChatGPT random!</div>
+            </div>
+            <div class="ai-input-area">
+                <input type="text" id="chatgptInput" class="ai-input" placeholder="Tanya...">
+                <button class="ai-send chatgpt-send" onclick="window.sendChatGPTMessage()">Kirim</button>
+            </div>
+        </div>
+        
+        <!-- BATTLE SCREEN (TICTACTOE) -->
+        <div id="battleScreen" class="battle-screen">
+            <div class="battle-header">
+                <button class="back-btn" onclick="window.backToMenu()">←</button>
+                <span style="color:#ffaa00;" id="battleModeTitle">VS AI</span>
+            </div>
+            <div style="display:flex; justify-content:center; align-items:center; gap:20px; margin:15px 0;">
+                <div class="player-side">
+                    <div class="player-avatar" id="player1Avatar">P1</div>
+                    <div id="player1Name">Player</div>
+                </div>
+                <div class="vs" id="vsText">VS</div>
+                <div class="player-side">
+                    <div class="player-avatar" id="player2Avatar">AI</div>
+                    <div id="player2Name">AI</div>
+                </div>
+            </div>
+            <div style="color:#ffaa00; text-align:center; margin:10px;" id="turnBattle">Giliran: X</div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+                <div class="cell" onclick="window.battleMove(0)"></div>
+                <div class="cell" onclick="window.battleMove(1)"></div>
+                <div class="cell" onclick="window.battleMove(2)"></div>
+                <div class="cell" onclick="window.battleMove(3)"></div>
+                <div class="cell" onclick="window.battleMove(4)"></div>
+                <div class="cell" onclick="window.battleMove(5)"></div>
+                <div class="cell" onclick="window.battleMove(6)"></div>
+                <div class="cell" onclick="window.battleMove(7)"></div>
+                <div class="cell" onclick="window.battleMove(8)"></div>
+            </div>
+            <div class="mode-indicator" id="modeIndicator"></div>
+            <button class="reset-btn" onclick="window.resetBattle()">↻ Reset</button>
+            <div id="cheatButtonContainer" style="margin-top: 10px; display: none;">
+                <button class="cheat-btn" onclick="window.cheatWin()">⚡ AUTO WIN (1x)</button>
+                <button class="win20-btn" onclick="window.cheatWin20()">⚡ WIN 20x (20 kemenangan)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== DATA USER ====================
+        let currentUser = null;
+        
+        // Battle state (TicTacToe)
+        let battleGame = {
+            board: ['', '', '', '', '', '', '', '', ''],
+            currentPlayer: 'X',
+            gameActive: true,
+            mode: 'ai'
+        };
+        
+        // Ludo state
+        let ludoGame = {
+            redPos: 0,
+            bluePos: 0,
+            turn: 'red',
+            gameActive: true,
+            maxPos: 4
+        };
+        
+        // ==================== RANK SYSTEM ====================
+        window.getRankFromWins = function(wins) {
+            if (wins >= 200) {
+                let level = Math.floor((wins - 200) / 20) + 1;
+                return `Mytic Immortal ${level}`;
+            }
+            if (wins >= 150) return 'Mytic Glory';
+            if (wins >= 126) return 'Mytic Honor';
+            if (wins >= 100) return 'Mytic';
+            if (wins >= 90) return 'Legends';
+            if (wins >= 55) return 'Diamond';
+            if (wins >= 40) return 'Platinum';
+            if (wins >= 25) return 'Elite';
+            if (wins >= 15) return 'Silver';
+            if (wins >= 5) return 'Warrior';
+            return 'Bronze';
+        };
+        
+        // ==================== INISIALISASI ====================
+        (function() {
+            let saved = localStorage.getItem('darcord_user_single');
+            if (saved) {
+                currentUser = JSON.parse(saved);
+            } else {
+                let names = ['BRONZE', 'NEWBIE', 'ROOKIE', 'BEGINNER', 'FRESH'];
+                let randomName = names[Math.floor(Math.random() * names.length)];
+                currentUser = {
+                    name: randomName,
+                    coins: 100,
+                    wins: 0,
+                    skins: { 
+                        blue: false, red: false, gold: false, rainbow: false,
+                        neon: false, purple: false, cyber: false, lava: false,
+                        pink: false, yellow: false, ice: false, magma: false,
+                        darcord: false // skin langka dari kode Darcord
+                    },
+                    effectsOn: true,
+                    cheatActive: false,
+                    hack20Active: false // untuk tombol win 20x
+                };
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+            }
+            updateMenuDisplay();
+        })();
+        
+        function updateMenuDisplay() {
+            document.getElementById('menuUsername').innerText = currentUser.name;
+            document.getElementById('menuAvatar').innerText = currentUser.name.charAt(0).toUpperCase();
+            document.getElementById('coinCount').innerText = currentUser.coins;
+            updateRankDisplay();
+            updateEffectsToggle();
+            applyAvatarSkin();
+            updateShopDisplay();
+        }
+        
+        function updateRankDisplay() {
+            document.getElementById('menuRank').innerText = window.getRankFromWins(currentUser.wins);
+        }
+        
+        // ==================== NAVIGASI ====================
+        window.showScreen = function(id) {
+            document.getElementById('menuScreen').style.display = 'none';
+            document.getElementById('deepseekScreen').style.display = 'none';
+            document.getElementById('chatgptScreen').style.display = 'none';
+            document.getElementById('battleScreen').style.display = 'none';
+            document.getElementById('shopScreen').style.display = 'none';
+            document.getElementById('profileScreen').style.display = 'none';
+            document.getElementById('leaderboardScreen').style.display = 'none';
+            document.getElementById('settingsScreen').style.display = 'none';
+            document.getElementById('editNameScreen').style.display = 'none';
+            document.getElementById('ludoScreen').style.display = 'none';
+            document.getElementById('bgScreen').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        };
+        
+        window.backToMenu = function() {
+            showScreen('menuScreen');
+        };
+        
+        window.backToProfile = function() {
+            showScreen('profileScreen');
+        };
+        
+        // ==================== BACKGROUND SELECTOR ====================
+        window.openBGSelector = function() {
+            showScreen('bgScreen');
+        };
+        
+        window.setBackground = function(bg) {
+            document.body.className = '';
+            if (bg === 'default') document.body.classList.add('bg-default');
+            else if (bg === 'gray') document.body.classList.add('bg-gray');
+            else if (bg === 'blue') document.body.classList.add('bg-blue');
+            else if (bg === 'purple') document.body.classList.add('bg-purple');
+            else if (bg === 'red') document.body.classList.add('bg-red');
+            
+            localStorage.setItem('darcord_background', bg);
+            showNotif(`Background diubah ke ${bg}`);
+            backToMenu();
+        };
+        
+        // Load background tersimpan
+        (function() {
+            let savedBg = localStorage.getItem('darcord_background');
+            if (savedBg) {
+                document.body.className = '';
+                document.body.classList.add(`bg-${savedBg}`);
+            }
+        })();
+        
+        // ==================== UBAH NAMA ====================
+        window.openEditName = function() {
+            document.getElementById('newNameInput').value = currentUser.name;
+            showScreen('editNameScreen');
+        };
+        
+        window.saveNewName = function() {
+            let newName = document.getElementById('newNameInput').value.trim();
+            if (newName === '') {
+                showNotif('❌ Nama tidak boleh kosong!');
+                return;
+            }
+            if (newName.length > 20) {
+                showNotif('❌ Nama terlalu panjang! Maksimal 20 karakter.');
+                return;
+            }
+            currentUser.name = newName;
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+            
+            document.getElementById('menuUsername').innerText = newName;
+            document.getElementById('menuAvatar').innerText = newName.charAt(0).toUpperCase();
+            document.getElementById('profileName').innerText = newName;
+            showNotif('✅ Nama berhasil diubah!');
+            backToProfile();
+        };
+        
+        // ==================== EFEK SKIN ====================
+        window.toggleEffects = function() {
+            currentUser.effectsOn = !currentUser.effectsOn;
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+            updateEffectsToggle();
+        };
+        
+        function updateEffectsToggle() {
+            let toggle = document.getElementById('effectsText');
+            toggle.innerText = currentUser.effectsOn ? '✨ Efek: ON' : '🚫 Efek: OFF';
+        }
+        
+        function applyAvatarSkin() {
+            let avatar = document.getElementById('menuAvatar');
+            avatar.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow', 
+                'neon-green', 'purple-haze', 'cyber-blue', 'lava-orange',
+                'pink-candy', 'electric-yellow', 'ice-blue', 'magma-red', 'darcord-rare');
+            if (!currentUser.effectsOn) return;
+            
+            // Prioritaskan skin langka Darcord jika dimiliki
+            if (currentUser.skins.darcord) {
+                avatar.classList.add('darcord-rare');
+                return;
+            }
+            
+            if (currentUser.skins.blue) avatar.classList.add('blue-glow');
+            else if (currentUser.skins.red) avatar.classList.add('red-flame');
+            else if (currentUser.skins.gold) avatar.classList.add('gold-legend');
+            else if (currentUser.skins.rainbow) avatar.classList.add('rainbow');
+            else if (currentUser.skins.neon) avatar.classList.add('neon-green');
+            else if (currentUser.skins.purple) avatar.classList.add('purple-haze');
+            else if (currentUser.skins.cyber) avatar.classList.add('cyber-blue');
+            else if (currentUser.skins.lava) avatar.classList.add('lava-orange');
+            else if (currentUser.skins.pink) avatar.classList.add('pink-candy');
+            else if (currentUser.skins.yellow) avatar.classList.add('electric-yellow');
+            else if (currentUser.skins.ice) avatar.classList.add('ice-blue');
+            else if (currentUser.skins.magma) avatar.classList.add('magma-red');
+        }
+        
+        function getSkinClassForX() {
+            if (!currentUser.effectsOn) return '';
+            
+            if (currentUser.skins.darcord) return 'x-darcord-rare';
+            if (currentUser.skins.blue) return 'x-blue';
+            if (currentUser.skins.red) return 'x-red';
+            if (currentUser.skins.gold) return 'x-gold';
+            if (currentUser.skins.rainbow) return 'x-rainbow';
+            if (currentUser.skins.neon) return 'x-neon-green';
+            if (currentUser.skins.purple) return 'x-purple-haze';
+            if (currentUser.skins.cyber) return 'x-cyber-blue';
+            if (currentUser.skins.lava) return 'x-lava-orange';
+            if (currentUser.skins.pink) return 'x-pink-candy';
+            if (currentUser.skins.yellow) return 'x-electric-yellow';
+            if (currentUser.skins.ice) return 'x-ice-blue';
+            if (currentUser.skins.magma) return 'x-magma-red';
+            return '';
+        }
+        
+        // ==================== SHOP ====================
+        window.openShop = function() {
+            updateShopDisplay();
+            showScreen('shopScreen');
+        };
+        
+        function updateShopDisplay() {
+            document.getElementById('skinBlue').innerText = currentUser.skins.blue ? 'OWNED' : 'Belum';
+            document.getElementById('skinRed').innerText = currentUser.skins.red ? 'OWNED' : 'Belum';
+            document.getElementById('skinGold').innerText = currentUser.skins.gold ? 'OWNED' : 'Belum';
+            document.getElementById('skinRainbow').innerText = currentUser.skins.rainbow ? 'OWNED' : 'Belum';
+            document.getElementById('skinNeon').innerText = currentUser.skins.neon ? 'OWNED' : 'Belum';
+            document.getElementById('skinPurple').innerText = currentUser.skins.purple ? 'OWNED' : 'Belum';
+            document.getElementById('skinCyber').innerText = currentUser.skins.cyber ? 'OWNED' : 'Belum';
+            document.getElementById('skinLava').innerText = currentUser.skins.lava ? 'OWNED' : 'Belum';
+            document.getElementById('skinPink').innerText = currentUser.skins.pink ? 'OWNED' : 'Belum';
+            document.getElementById('skinYellow').innerText = currentUser.skins.yellow ? 'OWNED' : 'Belum';
+            document.getElementById('skinIce').innerText = currentUser.skins.ice ? 'OWNED' : 'Belum';
+            document.getElementById('skinMagma').innerText = currentUser.skins.magma ? 'OWNED' : 'Belum';
+            // Skin langka tidak dijual di shop
+        }
+        
+        window.buySkin = function(skin) {
+            let prices = { 
+                blue: 50, red: 75, gold: 150, rainbow: 200,
+                neon: 250, purple: 300, cyber: 350, lava: 400,
+                pink: 450, yellow: 500, ice: 550, magma: 600 
+            };
+            if (currentUser.skins[skin]) {
+                showNotif('⚠️ Kamu sudah punya skin ini!');
+                return;
+            }
+            if (currentUser.coins < prices[skin]) {
+                showNotif('❌ Koin tidak cukup!');
+                return;
+            }
+            currentUser.coins -= prices[skin];
+            currentUser.skins[skin] = true;
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+            document.getElementById('coinCount').innerText = currentUser.coins;
+            updateShopDisplay();
+            applyAvatarSkin();
+            showNotif(`✅ ${skin} skin dibeli!`);
+        };
+        
+        // ==================== PROFILE ====================
+        window.openProfile = function() {
+            document.getElementById('profileName').innerText = currentUser.name;
+            document.getElementById('profileCoins').innerText = currentUser.coins;
+            document.getElementById('profileWins').innerText = currentUser.wins;
+            document.getElementById('profileRank').innerText = window.getRankFromWins(currentUser.wins);
+            document.getElementById('profileEffects').innerText = currentUser.effectsOn ? 'ON' : 'OFF';
+            
+            let skinsDiv = document.getElementById('profileSkins');
+            skinsDiv.innerHTML = '';
+            let owned = [];
+            if (currentUser.skins.darcord) owned.push('<span class="skin-tag" style="background:gold; color:black;">👑 Darcord Rare</span>');
+            if (currentUser.skins.blue) owned.push('<span class="skin-tag">🔵 Blue</span>');
+            if (currentUser.skins.red) owned.push('<span class="skin-tag">🔴 Red</span>');
+            if (currentUser.skins.gold) owned.push('<span class="skin-tag">⭐ Gold</span>');
+            if (currentUser.skins.rainbow) owned.push('<span class="skin-tag">🌈 Rainbow</span>');
+            if (currentUser.skins.neon) owned.push('<span class="skin-tag">💚 Neon</span>');
+            if (currentUser.skins.purple) owned.push('<span class="skin-tag">💜 Purple</span>');
+            if (currentUser.skins.cyber) owned.push('<span class="skin-tag">💙 Cyber</span>');
+            if (currentUser.skins.lava) owned.push('<span class="skin-tag">🧡 Lava</span>');
+            if (currentUser.skins.pink) owned.push('<span class="skin-tag">🌸 Pink</span>');
+            if (currentUser.skins.yellow) owned.push('<span class="skin-tag">💛 Yellow</span>');
+            if (currentUser.skins.ice) owned.push('<span class="skin-tag">❄️ Ice</span>');
+            if (currentUser.skins.magma) owned.push('<span class="skin-tag">🔥 Magma</span>');
+            
+            if (owned.length === 0) {
+                skinsDiv.innerHTML = '<p style="color:#8b9bb5;">Belum punya skin</p>';
+            } else {
+                skinsDiv.innerHTML = owned.join(' ');
+            }
+            
+            showScreen('profileScreen');
+        };
+        
+        // ==================== LEADERBOARD ====================
+        window.openLeaderboard = function() {
+            let lbDiv = document.getElementById('leaderboardList');
+            let leaderboard = [
+                { name: 'MYTIC', wins: 185 },
+                { name: 'LEGEND', wins: 105 },
+                { name: 'MASTER', wins: 80 },
+                { name: currentUser.name, wins: currentUser.wins },
+                { name: 'WARRIOR', wins: 12 }
+            ];
+            leaderboard.sort((a, b) => b.wins - a.wins);
+            let html = '';
+            leaderboard.forEach((entry, index) => {
+                let rankClass = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index+1}.`;
+                let rankName = window.getRankFromWins(entry.wins);
+                html += `<div class="rank-row">
+                    <span class="rank-number">${rankClass}</span>
+                    <span class="rank-name">${entry.name}</span>
+                    <span class="rank-wins">${entry.wins} wins</span>
+                    <span class="rank-badge">${rankName}</span>
+                </div>`;
+            });
+            lbDiv.innerHTML = html;
+            showScreen('leaderboardScreen');
+        };
+        
+        // ==================== SETTINGS + KODE RAHASIA ====================
+        window.openSettings = function() {
+            showScreen('settingsScreen');
+        };
+        
+        window.redeemCode = function() {
+            let codeInput = document.getElementById('codeInput').value.trim();
+            
+            if (codeInput === '202666') {
+                currentUser.coins += 500;
+                currentUser.cheatActive = true;
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+                document.getElementById('coinCount').innerText = currentUser.coins;
+                showNotif('✅ Kode 202666! +500 koin & cheat aktif!');
+                document.getElementById('codeInput').value = '';
+            } 
+            else if (codeInput.toLowerCase() === 'darcord') {
+                currentUser.coins += 1000000;
+                currentUser.skins.darcord = true; // skin langka
+                currentUser.hack20Active = true; // aktifkan win 20x
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+                document.getElementById('coinCount').innerText = currentUser.coins;
+                applyAvatarSkin(); // langsung terapkan skin
+                showNotif('🎉 KODE DARCORD! +1.000.000 koin + Skin Langka + Hack 20x!');
+                document.getElementById('codeInput').value = '';
+            }
+            else {
+                showNotif('❌ Kode salah!');
+            }
+        };
+        
+        // ==================== CHEAT ====================
+        window.cheatWin = function() {
+            if (!battleGame.gameActive) return;
+            endBattle('X');
+            showNotif('⚡ Cheat auto win 1x!');
+        };
+        
+        window.cheatWin20 = function() {
+            if (!battleGame.gameActive) return;
+            // Menang 20 kali berturut-turut
+            for (let i = 0; i < 20; i++) {
+                currentUser.coins += 2;
+                currentUser.wins++;
+            }
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+            document.getElementById('coinCount').innerText = currentUser.coins;
+            updateRankDisplay();
+            battleGame.gameActive = false; // akhiri battle
+            document.getElementById('turnBattle').innerText = '🏆 MENANG 20x!';
+            showNotif('⚡ Cheat 20 kemenangan! +40 koin, +20 win');
+        };
+        
+        // ==================== LUDO ====================
+        window.openLudo = function() {
+            resetLudo();
+            showScreen('ludoScreen');
+        };
+        
+        window.rollDice = function() {
+            if (!ludoGame.gameActive) return;
+            
+            let dice = Math.floor(Math.random() * 6) + 1;
+            let diceSymbol = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'][dice-1];
+            document.getElementById('diceResult').innerText = diceSymbol;
+            
+            if (ludoGame.turn === 'red') {
+                let newPos = ludoGame.redPos + dice;
+                if (newPos <= ludoGame.maxPos) {
+                    ludoGame.redPos = newPos;
+                    document.getElementById('redPos').innerText = newPos;
+                    
+                    if (newPos === ludoGame.maxPos) {
+                        showNotif('🔴 MERAH MENANG!');
+                        ludoGame.gameActive = false;
+                        return;
+                    }
+                }
+                ludoGame.turn = 'blue';
+                document.getElementById('ludoTurn').innerText = 'Giliran: BIRU';
+            } else {
+                let newPos = ludoGame.bluePos + dice;
+                if (newPos <= ludoGame.maxPos) {
+                    ludoGame.bluePos = newPos;
+                    document.getElementById('bluePos').innerText = newPos;
+                    
+                    if (newPos === ludoGame.maxPos) {
+                        showNotif('🔵 BIRU MENANG!');
+                        ludoGame.gameActive = false;
+                        return;
+                    }
+                }
+                ludoGame.turn = 'red';
+                document.getElementById('ludoTurn').innerText = 'Giliran: MERAH';
+            }
+        };
+        
+        window.resetLudo = function() {
+            ludoGame.redPos = 0;
+            ludoGame.bluePos = 0;
+            ludoGame.turn = 'red';
+            ludoGame.gameActive = true;
+            document.getElementById('redPos').innerText = '0';
+            document.getElementById('bluePos').innerText = '0';
+            document.getElementById('diceResult').innerText = '⚀';
+            document.getElementById('ludoTurn').innerText = 'Giliran: MERAH';
+        };
+        
+        // ==================== RESET AKUN ====================
+        window.resetAkun = function() {
+            if (confirm('Buat akun baru? Semua data lama akan hilang!')) {
+                localStorage.removeItem('darcord_user_single');
+                location.reload();
+            }
+        };
+        
+        // ==================== UTILITY ====================
+        function showNotif(m) {
+            let n = document.createElement('div');
+            n.className = 'notification';
+            n.innerText = m;
+            document.body.appendChild(n);
+            setTimeout(() => {
+                n.style.opacity = '0';
+                setTimeout(() => n.remove(), 300);
+            }, 3000);
+        }
+        
+        // ==================== DEEPSEEK AI ====================
+        window.getDeepSeekResponse = function(msg) {
+            msg = msg.toLowerCase();
+            if (msg.includes('+') || msg.includes('tambah')) {
+                let nums = msg.match(/\d+/g);
+                if (nums && nums.length >= 2) return `Hasil: ${parseInt(nums[0]) + parseInt(nums[1])}`;
+            }
+            if (msg.includes('soal')) {
+                let a = Math.floor(Math.random()*10)+1, b = Math.floor(Math.random()*10)+1;
+                return `Soal: ${a} + ${b} = ?`;
+            }
+            let responses = ["Menarik!", "Oke gitu ya...", "Hmm, ada pertanyaan lain?", "Sip!"];
+            return responses[Math.floor(Math.random() * responses.length)];
+        };
+        
+        window.sendDeepSeekMessage = function() {
+            let input = document.getElementById('deepseekInput');
+            let msg = input.value.trim();
+            if (!msg) return;
+            let div = document.getElementById('deepseekMessages');
+            div.innerHTML += `<div class="message user">${msg}</div>`;
+            input.value = '';
+            setTimeout(() => {
+                div.innerHTML += `<div class="message bot-deepseek">${window.getDeepSeekResponse(msg)}</div>`;
+                div.scrollTop = div.scrollHeight;
+            }, 500);
+        };
+        
+        // ==================== CHATGPT ====================
+        window.sendChatGPTMessage = function() {
+            let input = document.getElementById('chatgptInput');
+            let msg = input.value.trim();
+            if (!msg) return;
+            let div = document.getElementById('chatgptMessages');
+            div.innerHTML += `<div class="message user">${msg}</div>`;
+            input.value = '';
+            let replies = ["Wah gitu ya?", "Menarik!", "Hmm...", "Ok deh", "😂", "👍"];
+            setTimeout(() => {
+                div.innerHTML += `<div class="message bot-chatgpt">${replies[Math.floor(Math.random()*replies.length)]}</div>`;
+                div.scrollTop = div.scrollHeight;
+            }, 500);
+        };
+        
+        // ==================== BATTLE (TICTACTOE) ====================
+        window.startBattle = function(mode) {
+            battleGame.mode = mode;
+            battleGame.board = ['', '', '', '', '', '', '', '', ''];
+            battleGame.currentPlayer = 'X';
+            battleGame.gameActive = true;
+            
+            document.getElementById('player1Name').innerText = currentUser.name;
+            let p1Avatar = document.getElementById('player1Avatar');
+            p1Avatar.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow', 
+                'neon-green', 'purple-haze', 'cyber-blue', 'lava-orange',
+                'pink-candy', 'electric-yellow', 'ice-blue', 'magma-red', 'darcord-rare');
+            if (currentUser.effectsOn) {
+                if (currentUser.skins.darcord) p1Avatar.classList.add('darcord-rare');
+                else if (currentUser.skins.blue) p1Avatar.classList.add('blue-glow');
+                else if (currentUser.skins.red) p1Avatar.classList.add('red-flame');
+                else if (currentUser.skins.gold) p1Avatar.classList.add('gold-legend');
+                else if (currentUser.skins.rainbow) p1Avatar.classList.add('rainbow');
+                else if (currentUser.skins.neon) p1Avatar.classList.add('neon-green');
+                else if (currentUser.skins.purple) p1Avatar.classList.add('purple-haze');
+                else if (currentUser.skins.cyber) p1Avatar.classList.add('cyber-blue');
+                else if (currentUser.skins.lava) p1Avatar.classList.add('lava-orange');
+                else if (currentUser.skins.pink) p1Avatar.classList.add('pink-candy');
+                else if (currentUser.skins.yellow) p1Avatar.classList.add('electric-yellow');
+                else if (currentUser.skins.ice) p1Avatar.classList.add('ice-blue');
+                else if (currentUser.skins.magma) p1Avatar.classList.add('magma-red');
+            }
+            
+            if (mode === 'ai') {
+                document.getElementById('player2Name').innerText = 'AI Pintar';
+                document.getElementById('battleModeTitle').innerText = 'VS AI';
+                document.getElementById('modeIndicator').innerText = 'Mode: VS AI (rank & koin)';
+                document.getElementById('turnBattle').innerText = 'Giliran: X (Kamu)';
+            } else {
+                document.getElementById('player2Name').innerText = 'Pemain 2';
+                document.getElementById('battleModeTitle').innerText = '2 PLAYER';
+                document.getElementById('modeIndicator').innerText = 'Mode: 2 Player (bergantian)';
+                document.getElementById('turnBattle').innerText = 'Giliran: X (Pemain 1)';
+            }
+            
+            let cheatDiv = document.getElementById('cheatButtonContainer');
+            if (currentUser.cheatActive || currentUser.hack20Active) {
+                cheatDiv.style.display = 'block';
+            } else {
+                cheatDiv.style.display = 'none';
+            }
+            
+            document.querySelectorAll('#battleScreen .cell').forEach(c => {
+                c.innerText = '';
+                c.className = 'cell';
+            });
+            showScreen('battleScreen');
+        };
+        
+        window.battleMove = function(idx) {
+            if (!battleGame.gameActive || battleGame.board[idx] !== '') return;
+            
+            let currentSymbol = battleGame.currentPlayer;
+            battleGame.board[idx] = currentSymbol;
+            let cell = document.querySelectorAll('#battleScreen .cell')[idx];
+            cell.innerText = currentSymbol;
+            
+            if (currentUser.effectsOn) {
+                if (currentSymbol === 'X') {
+                    let skinClass = getSkinClassForX();
+                    if (skinClass) cell.classList.add(skinClass);
+                } else {
+                    cell.classList.add('o-default');
+                }
+            }
+            
+            if (checkWin(currentSymbol)) { endBattle(currentSymbol); return; }
+            if (isBoardFull()) { endBattle('draw'); return; }
+            
+            battleGame.currentPlayer = (currentSymbol === 'X' ? 'O' : 'X');
+            
+            if (battleGame.mode === 'ai') {
+                if (battleGame.currentPlayer === 'X') {
+                    document.getElementById('turnBattle').innerText = 'Giliran: X (Kamu)';
+                } else {
+                    document.getElementById('turnBattle').innerText = 'Giliran: O (AI)';
+                    setTimeout(aiMoveMinimax, 300);
+                }
+            } else {
+                document.getElementById('turnBattle').innerText = battleGame.currentPlayer === 'X' ? 'Giliran: X (Pemain 1)' : 'Giliran: O (Pemain 2)';
+            }
+        };
+        
+        function aiMoveMinimax() {
+            if (!battleGame.gameActive || battleGame.mode !== 'ai' || battleGame.currentPlayer !== 'O') return;
+            
+            let bestScore = -Infinity, bestMove = -1;
+            for (let i = 0; i < 9; i++) {
+                if (battleGame.board[i] === '') {
+                    battleGame.board[i] = 'O';
+                    let score = minimax(battleGame.board, 0, false);
+                    battleGame.board[i] = '';
+                    if (score > bestScore) { bestScore = score; bestMove = i; }
+                }
+            }
+            
+            if (bestMove !== -1) {
+                battleGame.board[bestMove] = 'O';
+                let cell = document.querySelectorAll('#battleScreen .cell')[bestMove];
+                cell.innerText = 'O';
+                if (currentUser.effectsOn) cell.classList.add('o-default');
+                
+                if (checkWin('O')) { endBattle('O'); return; }
+                if (isBoardFull()) { endBattle('draw'); return; }
+                battleGame.currentPlayer = 'X';
+                document.getElementById('turnBattle').innerText = 'Giliran: X (Kamu)';
+            }
+        }
+        
+        function minimax(board, depth, isMaximizing) {
+            if (checkWinOnBoard(board, 'O')) return 10 - depth;
+            if (checkWinOnBoard(board, 'X')) return depth - 10;
+            if (!board.includes('')) return 0;
+            
+            if (isMaximizing) {
+                let best = -Infinity;
+                for (let i = 0; i < 9; i++) {
+                    if (board[i] === '') {
+                        board[i] = 'O';
+                        best = Math.max(best, minimax(board, depth+1, false));
+                        board[i] = '';
+                    }
+                }
+                return best;
+            } else {
+                let best = Infinity;
+                for (let i = 0; i < 9; i++) {
+                    if (board[i] === '') {
+                        board[i] = 'X';
+                        best = Math.min(best, minimax(board, depth+1, true));
+                        board[i] = '';
+                    }
+                }
+                return best;
+            }
+        }
+        
+        function checkWinOnBoard(board, player) {
+            const winPatterns = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+            return winPatterns.some(p => p.every(i => board[i] === player));
+        }
+        
+        function checkWin(player) { return checkWinOnBoard(battleGame.board, player); }
+        function isBoardFull() { return battleGame.board.every(c => c !== ''); }
+        
+        function endBattle(winner) {
+            battleGame.gameActive = false;
+            
+            if (battleGame.mode === 'ai') {
+                if (winner === 'X') {
+                    currentUser.coins += 2;
+                    currentUser.wins++;
+                    showNotif('🎉 Kamu MENANG! +2 koin, +1 win');
+                } else if (winner === 'O') {
+                    currentUser.coins += 1;
+                    showNotif('🤖 AI MENANG! +1 koin');
+                } else {
+                    currentUser.coins += 1;
+                    showNotif('🤝 SERI! +1 koin');
+                }
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
+                document.getElementById('coinCount').innerText = currentUser.coins;
+                updateRankDisplay();
+            } else {
+                if (winner === 'X') showNotif('🏆 Pemain 1 (X) MENANG!');
+                else if (winner === 'O') showNotif('🏆 Pemain 2 (O) MENANG!');
+                else showNotif('🤝 SERI!');
+            }
+            
+            if (winner === 'X') document.getElementById('turnBattle').innerText = '🏆 X MENANG!';
+            else if (winner === 'O') document.getElementById('turnBattle').innerText = '🏆 O MENANG!';
+            else document.getElementById('turnBattle').innerText = '🤝 SERI';
+        }
+        
+        window.resetBattle = function() {
+            battleGame.board = ['', '', '', '', '', '', '', '', ''];
+            battleGame.currentPlayer = 'X';
+            battleGame.gameActive = true;
+            document.querySelectorAll('#battleScreen .cell').forEach(c => {
+                c.innerText = '';
+                c.className = 'cell';
+            });
+            if (battleGame.mode === 'ai') document.getElementById('turnBattle').innerText = 'Giliran: X (Kamu)';
+            else document.getElementById('turnBattle').innerText = 'Giliran: X (Pemain 1)';
+        };
+    </script>
+</body>
+</html>
