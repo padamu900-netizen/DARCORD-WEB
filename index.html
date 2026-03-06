@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DARCORD • FINAL ALL FITUR</title>
+    <title>DARCORD • 8 Skin Effects</title>
     <style>
         * {
             margin: 0;
@@ -23,64 +23,14 @@
             max-width: 500px;
             width: 100%;
         }
-        /* LOGIN SCREEN */
-        .login-screen {
-            background: #0f1219;
-            border-radius: 28px;
-            border: 1px solid #2a2f3a;
-            padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            display: block;
-        }
-        .logo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .logo h1 {
-            color: white;
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .logo p {
-            color: #8b9bb5;
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
-        .email-input {
-            width: 100%;
-            padding: 16px 18px;
-            background: #1a1f2a;
-            border: 1px solid #2f3540;
-            border-radius: 16px;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            margin-bottom: 20px;
-        }
-        .signin-btn {
-            width: 100%;
-            padding: 16px;
-            background: #3b82f6;
-            border: none;
-            border-radius: 16px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .signin-btn:hover {
-            background: #2563eb;
-        }
         /* MENU SCREEN */
         .menu-screen {
             background: #0f1219;
             border-radius: 28px;
             border: 1px solid #2a2f3a;
             padding: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            display: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            display: block;
         }
         .top-bar {
             display: flex;
@@ -108,10 +58,17 @@
             font-size: 1.3rem;
             transition: 0.3s;
         }
+        /* Efek skin (lama) */
         .user-avatar.blue-glow { box-shadow: 0 0 15px #3b82f6; border: 2px solid #3b82f6; }
         .user-avatar.red-flame { box-shadow: 0 0 15px #ff4d4d; border: 2px solid #ff4d4d; }
         .user-avatar.gold-legend { box-shadow: 0 0 20px gold; border: 2px solid gold; }
         .user-avatar.rainbow { animation: rainbowGlow 2s infinite; border: 2px solid white; }
+        /* Efek skin baru */
+        .user-avatar.neon-green { box-shadow: 0 0 20px #39ff14; border: 2px solid #39ff14; }
+        .user-avatar.purple-haze { box-shadow: 0 0 20px #a020f0; border: 2px solid #a020f0; }
+        .user-avatar.cyber-blue { box-shadow: 0 0 20px #00ffff; border: 2px solid #00ffff; }
+        .user-avatar.lava-orange { box-shadow: 0 0 20px #ff4500; border: 2px solid #ff4500; }
+
         @keyframes rainbowGlow {
             0% { box-shadow: 0 0 15px red; }
             25% { box-shadow: 0 0 15px yellow; }
@@ -583,21 +540,17 @@
         .cell:active {
             background: #2a2f3a;
         }
-        .cell.x-blue {
-            color: #3b82f6;
-            text-shadow: 0 0 10px #3b82f6;
-        }
-        .cell.x-red {
-            color: #ff4d4d;
-            text-shadow: 0 0 10px #ff4d4d;
-        }
-        .cell.x-gold {
-            color: gold;
-            text-shadow: 0 0 15px gold;
-        }
-        .cell.x-rainbow {
-            animation: rainbowText 2s infinite;
-        }
+        /* Efek X lama */
+        .cell.x-blue { color: #3b82f6; text-shadow: 0 0 10px #3b82f6; }
+        .cell.x-red { color: #ff4d4d; text-shadow: 0 0 10px #ff4d4d; }
+        .cell.x-gold { color: gold; text-shadow: 0 0 15px gold; }
+        .cell.x-rainbow { animation: rainbowText 2s infinite; }
+        /* Efek X baru */
+        .cell.x-neon-green { color: #39ff14; text-shadow: 0 0 10px #39ff14; }
+        .cell.x-purple-haze { color: #a020f0; text-shadow: 0 0 10px #a020f0; }
+        .cell.x-cyber-blue { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        .cell.x-lava-orange { color: #ff4500; text-shadow: 0 0 10px #ff4500; }
+
         @keyframes rainbowText {
             0% { color: red; text-shadow: 0 0 10px red; }
             20% { color: orange; text-shadow: 0 0 10px orange; }
@@ -724,17 +677,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- LOGIN SCREEN -->
-        <div id="loginScreen" class="login-screen">
-            <div class="logo">
-                <h1>⚡ DARCORD</h1>
-                <p>Masuk dengan email</p>
-            </div>
-            <input type="email" id="loginEmail" class="email-input" placeholder="Email" value="">
-            <button class="signin-btn" onclick="window.handleLogin()">▶ MASUK / DAFTAR</button>
-        </div>
-        
-        <!-- MENU SCREEN -->
+        <!-- MENU SCREEN (LANGSUNG MUNCUL) -->
         <div id="menuScreen" class="menu-screen">
             <div class="top-bar">
                 <div class="user-info">
@@ -744,7 +687,7 @@
                             <span id="menuUsername">BRONZE</span>
                             <button class="edit-name-btn" onclick="window.openEditName()" title="Ubah nama">✏️</button>
                         </h3>
-                        <p id="menuEmail">player@mail.com</p>
+                        <p>Player</p>
                     </div>
                 </div>
                 <div>
@@ -808,11 +751,11 @@
                     <h3>Settings</h3>
                     <p>Kode rahasia</p>
                 </div>
-                <!-- RESET BUTTON (Logout) -->
+                <!-- RESET BUTTON (Akun baru) -->
                 <div class="menu-btn large" onclick="window.resetAkun()">
                     <div class="icon">🔄</div>
-                    <h3>Logout</h3>
-                    <p>Ganti akun</p>
+                    <h3>Reset Akun</h3>
+                    <p>Buat akun baru</p>
                 </div>
                 <!-- TOMBOL ON/OFF EFEK -->
                 <div class="menu-btn large toggle-effects" onclick="window.toggleEffects()">
@@ -839,7 +782,7 @@
             </div>
         </div>
         
-        <!-- SHOP SCREEN -->
+        <!-- SHOP SCREEN (DENGAN 8 SKIN) -->
         <div id="shopScreen" class="shop-screen">
             <div class="shop-header">
                 <h1>🛒 SKIN SHOP</h1>
@@ -847,6 +790,7 @@
             </div>
             <div class="shop-content">
                 <div class="skin-grid">
+                    <!-- Skin lama -->
                     <div class="skin-item" onclick="window.buySkin('blue')">
                         <div class="preview" style="color: #3b82f6;">🔵</div>
                         <h4>Blue Glow</h4>
@@ -870,6 +814,31 @@
                         <h4>Rainbow</h4>
                         <div class="skin-price">🪙 200</div>
                         <div class="skin-owned" id="skinRainbow">Belum</div>
+                    </div>
+                    <!-- Skin baru -->
+                    <div class="skin-item" onclick="window.buySkin('neon')">
+                        <div class="preview" style="color: #39ff14;">💚</div>
+                        <h4>Neon Green</h4>
+                        <div class="skin-price">🪙 250</div>
+                        <div class="skin-owned" id="skinNeon">Belum</div>
+                    </div>
+                    <div class="skin-item" onclick="window.buySkin('purple')">
+                        <div class="preview" style="color: #a020f0;">💜</div>
+                        <h4>Purple Haze</h4>
+                        <div class="skin-price">🪙 300</div>
+                        <div class="skin-owned" id="skinPurple">Belum</div>
+                    </div>
+                    <div class="skin-item" onclick="window.buySkin('cyber')">
+                        <div class="preview" style="color: #00ffff;">💙</div>
+                        <h4>Cyber Blue</h4>
+                        <div class="skin-price">🪙 350</div>
+                        <div class="skin-owned" id="skinCyber">Belum</div>
+                    </div>
+                    <div class="skin-item" onclick="window.buySkin('lava')">
+                        <div class="preview" style="color: #ff4500;">🧡</div>
+                        <h4>Lava Orange</h4>
+                        <div class="skin-price">🪙 400</div>
+                        <div class="skin-owned" id="skinLava">Belum</div>
                     </div>
                 </div>
             </div>
@@ -1021,8 +990,7 @@
     </div>
 
     <script>
-        // ==================== DATA ====================
-        let users = JSON.parse(localStorage.getItem('darcord_users_multi')) || [];
+        // ==================== DATA USER ====================
         let currentUser = null;
         let battleGame = {
             board: ['', '', '', '', '', '', '', '', ''],
@@ -1049,39 +1017,32 @@
             return 'Bronze';
         };
         
-        // ==================== LOGIN ====================
-        window.handleLogin = function() {
-            let email = document.getElementById('loginEmail').value.trim();
-            if (!email) { showNotif('❌ Masukkan email!'); return; }
-            if (!email.includes('@') || !email.includes('.')) { showNotif('❌ Email tidak valid!'); return; }
-            
-            let user = users.find(u => u.email === email);
-            if (!user) {
+        // ==================== INISIALISASI ====================
+        (function() {
+            let saved = localStorage.getItem('darcord_user_single');
+            if (saved) {
+                currentUser = JSON.parse(saved);
+            } else {
                 let names = ['BRONZE', 'NEWBIE', 'ROOKIE', 'BEGINNER', 'FRESH'];
                 let randomName = names[Math.floor(Math.random() * names.length)];
-                user = {
-                    email: email,
+                currentUser = {
                     name: randomName,
                     coins: 100,
                     wins: 0,
-                    skins: { blue: false, red: false, gold: false, rainbow: false },
+                    skins: { 
+                        blue: false, red: false, gold: false, rainbow: false,
+                        neon: false, purple: false, cyber: false, lava: false 
+                    },
                     effectsOn: true,
                     cheatActive: false
                 };
-                users.push(user);
-                localStorage.setItem('darcord_users_multi', JSON.stringify(users));
-                showNotif('✅ Akun baru dibuat!');
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
             }
-            currentUser = user;
             updateMenuDisplay();
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('menuScreen').style.display = 'block';
-        };
+        })();
         
         function updateMenuDisplay() {
-            if (!currentUser) return;
             document.getElementById('menuUsername').innerText = currentUser.name;
-            document.getElementById('menuEmail').innerText = currentUser.email;
             document.getElementById('menuAvatar').innerText = currentUser.name.charAt(0).toUpperCase();
             document.getElementById('coinCount').innerText = currentUser.coins;
             updateRankDisplay();
@@ -1133,7 +1094,7 @@
                 return;
             }
             currentUser.name = newName;
-            updateUserInStorage();
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
             
             document.getElementById('menuUsername').innerText = newName;
             document.getElementById('menuAvatar').innerText = newName.charAt(0).toUpperCase();
@@ -1145,7 +1106,7 @@
         // ==================== EFEK SKIN ====================
         window.toggleEffects = function() {
             currentUser.effectsOn = !currentUser.effectsOn;
-            updateUserInStorage();
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
             updateEffectsToggle();
         };
         
@@ -1156,12 +1117,16 @@
         
         function applyAvatarSkin() {
             let avatar = document.getElementById('menuAvatar');
-            avatar.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow');
+            avatar.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow', 'neon-green', 'purple-haze', 'cyber-blue', 'lava-orange');
             if (!currentUser.effectsOn) return;
             if (currentUser.skins.blue) avatar.classList.add('blue-glow');
             else if (currentUser.skins.red) avatar.classList.add('red-flame');
             else if (currentUser.skins.gold) avatar.classList.add('gold-legend');
             else if (currentUser.skins.rainbow) avatar.classList.add('rainbow');
+            else if (currentUser.skins.neon) avatar.classList.add('neon-green');
+            else if (currentUser.skins.purple) avatar.classList.add('purple-haze');
+            else if (currentUser.skins.cyber) avatar.classList.add('cyber-blue');
+            else if (currentUser.skins.lava) avatar.classList.add('lava-orange');
         }
         
         function getSkinClassForX() {
@@ -1170,6 +1135,10 @@
             if (currentUser.skins.red) return 'x-red';
             if (currentUser.skins.gold) return 'x-gold';
             if (currentUser.skins.rainbow) return 'x-rainbow';
+            if (currentUser.skins.neon) return 'x-neon-green';
+            if (currentUser.skins.purple) return 'x-purple-haze';
+            if (currentUser.skins.cyber) return 'x-cyber-blue';
+            if (currentUser.skins.lava) return 'x-lava-orange';
             return '';
         }
         
@@ -1184,10 +1153,17 @@
             document.getElementById('skinRed').innerText = currentUser.skins.red ? 'OWNED' : 'Belum';
             document.getElementById('skinGold').innerText = currentUser.skins.gold ? 'OWNED' : 'Belum';
             document.getElementById('skinRainbow').innerText = currentUser.skins.rainbow ? 'OWNED' : 'Belum';
+            document.getElementById('skinNeon').innerText = currentUser.skins.neon ? 'OWNED' : 'Belum';
+            document.getElementById('skinPurple').innerText = currentUser.skins.purple ? 'OWNED' : 'Belum';
+            document.getElementById('skinCyber').innerText = currentUser.skins.cyber ? 'OWNED' : 'Belum';
+            document.getElementById('skinLava').innerText = currentUser.skins.lava ? 'OWNED' : 'Belum';
         }
         
         window.buySkin = function(skin) {
-            let prices = { blue: 50, red: 75, gold: 150, rainbow: 200 };
+            let prices = { 
+                blue: 50, red: 75, gold: 150, rainbow: 200,
+                neon: 250, purple: 300, cyber: 350, lava: 400 
+            };
             if (currentUser.skins[skin]) {
                 showNotif('⚠️ Kamu sudah punya skin ini!');
                 return;
@@ -1198,7 +1174,7 @@
             }
             currentUser.coins -= prices[skin];
             currentUser.skins[skin] = true;
-            updateUserInStorage();
+            localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
             document.getElementById('coinCount').innerText = currentUser.coins;
             updateShopDisplay();
             applyAvatarSkin();
@@ -1220,6 +1196,10 @@
             if (currentUser.skins.red) owned.push('<span class="skin-tag">🔴 Red</span>');
             if (currentUser.skins.gold) owned.push('<span class="skin-tag">⭐ Gold</span>');
             if (currentUser.skins.rainbow) owned.push('<span class="skin-tag">🌈 Rainbow</span>');
+            if (currentUser.skins.neon) owned.push('<span class="skin-tag">💚 Neon</span>');
+            if (currentUser.skins.purple) owned.push('<span class="skin-tag">💜 Purple</span>');
+            if (currentUser.skins.cyber) owned.push('<span class="skin-tag">💙 Cyber</span>');
+            if (currentUser.skins.lava) owned.push('<span class="skin-tag">🧡 Lava</span>');
             
             if (owned.length === 0) {
                 skinsDiv.innerHTML = '<p style="color:#8b9bb5;">Belum punya skin</p>';
@@ -1233,15 +1213,22 @@
         // ==================== LEADERBOARD ====================
         window.openLeaderboard = function() {
             let lbDiv = document.getElementById('leaderboardList');
-            let sorted = [...users].sort((a, b) => b.wins - a.wins);
+            let leaderboard = [
+                { name: 'MYTIC', wins: 185 },
+                { name: 'LEGEND', wins: 105 },
+                { name: 'MASTER', wins: 80 },
+                { name: currentUser.name, wins: currentUser.wins },
+                { name: 'WARRIOR', wins: 12 }
+            ];
+            leaderboard.sort((a, b) => b.wins - a.wins);
             let html = '';
-            sorted.forEach((user, index) => {
+            leaderboard.forEach((entry, index) => {
                 let rankClass = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index+1}.`;
-                let rankName = window.getRankFromWins(user.wins);
+                let rankName = window.getRankFromWins(entry.wins);
                 html += `<div class="rank-row">
                     <span class="rank-number">${rankClass}</span>
-                    <span class="rank-name">${user.name}</span>
-                    <span class="rank-wins">${user.wins} wins</span>
+                    <span class="rank-name">${entry.name}</span>
+                    <span class="rank-wins">${entry.wins} wins</span>
                     <span class="rank-badge">${rankName}</span>
                 </div>`;
             });
@@ -1259,7 +1246,7 @@
             if (codeInput === '202666') {
                 currentUser.coins += 500;
                 currentUser.cheatActive = true;
-                updateUserInStorage();
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
                 document.getElementById('coinCount').innerText = currentUser.coins;
                 showNotif('✅ Kode benar! +500 koin & cheat aktif!');
                 document.getElementById('codeInput').value = '';
@@ -1275,21 +1262,15 @@
             showNotif('⚡ Cheat auto win diaktifkan!');
         };
         
-        // ==================== LOGOUT ====================
+        // ==================== RESET AKUN ====================
         window.resetAkun = function() {
-            currentUser = null;
-            document.getElementById('menuScreen').style.display = 'none';
-            document.getElementById('loginScreen').style.display = 'block';
-            document.getElementById('loginEmail').value = '';
+            if (confirm('Buat akun baru? Semua data lama akan hilang!')) {
+                localStorage.removeItem('darcord_user_single');
+                location.reload();
+            }
         };
         
         // ==================== UTILITY ====================
-        function updateUserInStorage() {
-            let index = users.findIndex(u => u.email === currentUser.email);
-            if (index !== -1) users[index] = currentUser;
-            localStorage.setItem('darcord_users_multi', JSON.stringify(users));
-        }
-        
         function showNotif(m) {
             let n = document.createElement('div');
             n.className = 'notification';
@@ -1353,12 +1334,16 @@
             
             document.getElementById('player1Name').innerText = currentUser.name;
             let p1Avatar = document.getElementById('player1Avatar');
-            p1Avatar.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow');
+            p1Avatar.classList.remove('blue-glow', 'red-flame', 'gold-legend', 'rainbow', 'neon-green', 'purple-haze', 'cyber-blue', 'lava-orange');
             if (currentUser.effectsOn) {
                 if (currentUser.skins.blue) p1Avatar.classList.add('blue-glow');
                 else if (currentUser.skins.red) p1Avatar.classList.add('red-flame');
                 else if (currentUser.skins.gold) p1Avatar.classList.add('gold-legend');
                 else if (currentUser.skins.rainbow) p1Avatar.classList.add('rainbow');
+                else if (currentUser.skins.neon) p1Avatar.classList.add('neon-green');
+                else if (currentUser.skins.purple) p1Avatar.classList.add('purple-haze');
+                else if (currentUser.skins.cyber) p1Avatar.classList.add('cyber-blue');
+                else if (currentUser.skins.lava) p1Avatar.classList.add('lava-orange');
             }
             
             if (mode === 'ai') {
@@ -1494,7 +1479,7 @@
                     currentUser.coins += 1;
                     showNotif('🤝 SERI! +1 koin');
                 }
-                updateUserInStorage();
+                localStorage.setItem('darcord_user_single', JSON.stringify(currentUser));
                 document.getElementById('coinCount').innerText = currentUser.coins;
                 updateRankDisplay();
             } else {
